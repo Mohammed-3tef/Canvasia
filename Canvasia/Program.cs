@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Canvasia
 {
     internal static class Program
     {
+        internal static Image imgBefore = null;
+        internal static Image imgAfter = null;
+
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
 

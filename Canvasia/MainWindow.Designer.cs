@@ -31,9 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.flipBtn = new System.Windows.Forms.Button();
-            this.addingFrameBtn = new System.Windows.Forms.Button();
             this.rotateBtn = new System.Windows.Forms.Button();
+            this.addingFrameBtn = new System.Windows.Forms.Button();
+            this.aboutBtn = new System.Windows.Forms.Button();
+            this.flipBtn = new System.Windows.Forms.Button();
             this.blurBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.grayscaleBtn = new System.Windows.Forms.Button();
@@ -44,7 +45,6 @@
             this.infraredBtn = new System.Windows.Forms.Button();
             this.invertBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.aboutBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,10 +54,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Location = new System.Drawing.Point(296, 12);
+            this.panel2.Location = new System.Drawing.Point(222, 10);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1274, 929);
+            this.panel2.Size = new System.Drawing.Size(956, 755);
             this.panel2.TabIndex = 3;
             // 
             // panel1
@@ -65,10 +65,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.rotateBtn);
+            this.panel1.Controls.Add(this.addingFrameBtn);
             this.panel1.Controls.Add(this.aboutBtn);
             this.panel1.Controls.Add(this.flipBtn);
-            this.panel1.Controls.Add(this.addingFrameBtn);
-            this.panel1.Controls.Add(this.rotateBtn);
             this.panel1.Controls.Add(this.blurBtn);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.grayscaleBtn);
@@ -79,44 +79,11 @@
             this.panel1.Controls.Add(this.infraredBtn);
             this.panel1.Controls.Add(this.invertBtn);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(9, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(281, 929);
+            this.panel1.Size = new System.Drawing.Size(211, 755);
             this.panel1.TabIndex = 2;
-            // 
-            // flipBtn
-            // 
-            this.flipBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.flipBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.flipBtn.FlatAppearance.BorderSize = 0;
-            this.flipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.flipBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.flipBtn.Location = new System.Drawing.Point(0, 723);
-            this.flipBtn.Name = "flipBtn";
-            this.flipBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.flipBtn.Size = new System.Drawing.Size(281, 48);
-            this.flipBtn.TabIndex = 18;
-            this.flipBtn.Text = "Flip Image";
-            this.flipBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.flipBtn.UseVisualStyleBackColor = true;
-            // 
-            // addingFrameBtn
-            // 
-            this.addingFrameBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.addingFrameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addingFrameBtn.FlatAppearance.BorderSize = 0;
-            this.addingFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addingFrameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.addingFrameBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.addingFrameBtn.Location = new System.Drawing.Point(0, 129);
-            this.addingFrameBtn.Name = "addingFrameBtn";
-            this.addingFrameBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.addingFrameBtn.Size = new System.Drawing.Size(281, 48);
-            this.addingFrameBtn.TabIndex = 17;
-            this.addingFrameBtn.Text = "Adding a Frame";
-            this.addingFrameBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addingFrameBtn.UseVisualStyleBackColor = true;
             // 
             // rotateBtn
             // 
@@ -126,14 +93,71 @@
             this.rotateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rotateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.rotateBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.rotateBtn.Location = new System.Drawing.Point(0, 669);
+            this.rotateBtn.Location = new System.Drawing.Point(0, 417);
+            this.rotateBtn.Margin = new System.Windows.Forms.Padding(2);
             this.rotateBtn.Name = "rotateBtn";
-            this.rotateBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.rotateBtn.Size = new System.Drawing.Size(281, 48);
-            this.rotateBtn.TabIndex = 16;
-            this.rotateBtn.Text = "Rotate Image";
+            this.rotateBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.rotateBtn.Size = new System.Drawing.Size(211, 39);
+            this.rotateBtn.TabIndex = 8;
+            this.rotateBtn.Text = "Rotate Filter";
             this.rotateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rotateBtn.UseVisualStyleBackColor = true;
+            // 
+            // addingFrameBtn
+            // 
+            this.addingFrameBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.addingFrameBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addingFrameBtn.FlatAppearance.BorderSize = 0;
+            this.addingFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addingFrameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.addingFrameBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.addingFrameBtn.Location = new System.Drawing.Point(0, 534);
+            this.addingFrameBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addingFrameBtn.Name = "addingFrameBtn";
+            this.addingFrameBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.addingFrameBtn.Size = new System.Drawing.Size(211, 39);
+            this.addingFrameBtn.TabIndex = 11;
+            this.addingFrameBtn.Text = "Adding a Frame";
+            this.addingFrameBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addingFrameBtn.UseVisualStyleBackColor = true;
+            // 
+            // aboutBtn
+            // 
+            this.aboutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.aboutBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("aboutBtn.BackgroundImage")));
+            this.aboutBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.aboutBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.aboutBtn.FlatAppearance.BorderSize = 0;
+            this.aboutBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.aboutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aboutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBtn.Location = new System.Drawing.Point(2, 720);
+            this.aboutBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.aboutBtn.Name = "aboutBtn";
+            this.aboutBtn.Size = new System.Drawing.Size(30, 32);
+            this.aboutBtn.TabIndex = 12;
+            this.aboutBtn.UseVisualStyleBackColor = true;
+            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
+            // 
+            // flipBtn
+            // 
+            this.flipBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.flipBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.flipBtn.FlatAppearance.BorderSize = 0;
+            this.flipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.flipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.flipBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.flipBtn.Location = new System.Drawing.Point(0, 456);
+            this.flipBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.flipBtn.Name = "flipBtn";
+            this.flipBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.flipBtn.Size = new System.Drawing.Size(211, 39);
+            this.flipBtn.TabIndex = 9;
+            this.flipBtn.Text = "Flip Filter";
+            this.flipBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.flipBtn.UseVisualStyleBackColor = true;
             // 
             // blurBtn
             // 
@@ -143,11 +167,12 @@
             this.blurBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.blurBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.blurBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.blurBtn.Location = new System.Drawing.Point(0, 615);
+            this.blurBtn.Location = new System.Drawing.Point(0, 495);
+            this.blurBtn.Margin = new System.Windows.Forms.Padding(2);
             this.blurBtn.Name = "blurBtn";
-            this.blurBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.blurBtn.Size = new System.Drawing.Size(281, 48);
-            this.blurBtn.TabIndex = 15;
+            this.blurBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.blurBtn.Size = new System.Drawing.Size(211, 39);
+            this.blurBtn.TabIndex = 10;
             this.blurBtn.Text = "Blur Filter";
             this.blurBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.blurBtn.UseVisualStyleBackColor = true;
@@ -160,10 +185,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(0, 561);
+            this.button1.Location = new System.Drawing.Point(0, 417);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(281, 48);
+            this.button1.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(211, 39);
             this.button1.TabIndex = 14;
             this.button1.Text = "Lighten-Darken Filter";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,11 +204,12 @@
             this.grayscaleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grayscaleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.grayscaleBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.grayscaleBtn.Location = new System.Drawing.Point(0, 507);
+            this.grayscaleBtn.Location = new System.Drawing.Point(0, 339);
+            this.grayscaleBtn.Margin = new System.Windows.Forms.Padding(2);
             this.grayscaleBtn.Name = "grayscaleBtn";
-            this.grayscaleBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.grayscaleBtn.Size = new System.Drawing.Size(281, 48);
-            this.grayscaleBtn.TabIndex = 13;
+            this.grayscaleBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.grayscaleBtn.Size = new System.Drawing.Size(211, 39);
+            this.grayscaleBtn.TabIndex = 6;
             this.grayscaleBtn.Text = "Grayscale Filter";
             this.grayscaleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.grayscaleBtn.UseVisualStyleBackColor = true;
@@ -195,11 +222,12 @@
             this.blackAndWhiteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.blackAndWhiteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.blackAndWhiteBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.blackAndWhiteBtn.Location = new System.Drawing.Point(0, 453);
+            this.blackAndWhiteBtn.Location = new System.Drawing.Point(0, 300);
+            this.blackAndWhiteBtn.Margin = new System.Windows.Forms.Padding(2);
             this.blackAndWhiteBtn.Name = "blackAndWhiteBtn";
-            this.blackAndWhiteBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.blackAndWhiteBtn.Size = new System.Drawing.Size(281, 48);
-            this.blackAndWhiteBtn.TabIndex = 12;
+            this.blackAndWhiteBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.blackAndWhiteBtn.Size = new System.Drawing.Size(211, 39);
+            this.blackAndWhiteBtn.TabIndex = 5;
             this.blackAndWhiteBtn.Text = "Black and White Filter";
             this.blackAndWhiteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.blackAndWhiteBtn.UseVisualStyleBackColor = true;
@@ -212,12 +240,13 @@
             this.detectEdgesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.detectEdgesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.detectEdgesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.detectEdgesBtn.Location = new System.Drawing.Point(0, 399);
+            this.detectEdgesBtn.Location = new System.Drawing.Point(0, 261);
+            this.detectEdgesBtn.Margin = new System.Windows.Forms.Padding(2);
             this.detectEdgesBtn.Name = "detectEdgesBtn";
-            this.detectEdgesBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.detectEdgesBtn.Size = new System.Drawing.Size(281, 48);
-            this.detectEdgesBtn.TabIndex = 11;
-            this.detectEdgesBtn.Text = "Detect Edges";
+            this.detectEdgesBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.detectEdgesBtn.Size = new System.Drawing.Size(211, 39);
+            this.detectEdgesBtn.TabIndex = 4;
+            this.detectEdgesBtn.Text = "Detect Edges Filter";
             this.detectEdgesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.detectEdgesBtn.UseVisualStyleBackColor = true;
             this.detectEdgesBtn.Click += new System.EventHandler(this.detectEdgesBtn_Click);
@@ -230,11 +259,12 @@
             this.sunlightBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sunlightBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.sunlightBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.sunlightBtn.Location = new System.Drawing.Point(0, 345);
+            this.sunlightBtn.Location = new System.Drawing.Point(0, 222);
+            this.sunlightBtn.Margin = new System.Windows.Forms.Padding(2);
             this.sunlightBtn.Name = "sunlightBtn";
-            this.sunlightBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.sunlightBtn.Size = new System.Drawing.Size(281, 48);
-            this.sunlightBtn.TabIndex = 10;
+            this.sunlightBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.sunlightBtn.Size = new System.Drawing.Size(211, 39);
+            this.sunlightBtn.TabIndex = 3;
             this.sunlightBtn.Text = "Natural Sunlight Filter";
             this.sunlightBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sunlightBtn.UseVisualStyleBackColor = true;
@@ -248,12 +278,13 @@
             this.purpleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.purpleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.purpleBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.purpleBtn.Location = new System.Drawing.Point(0, 291);
+            this.purpleBtn.Location = new System.Drawing.Point(0, 183);
+            this.purpleBtn.Margin = new System.Windows.Forms.Padding(2);
             this.purpleBtn.Name = "purpleBtn";
-            this.purpleBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.purpleBtn.Size = new System.Drawing.Size(281, 48);
-            this.purpleBtn.TabIndex = 9;
-            this.purpleBtn.Text = "Purple Filter";
+            this.purpleBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.purpleBtn.Size = new System.Drawing.Size(211, 39);
+            this.purpleBtn.TabIndex = 2;
+            this.purpleBtn.Text = "Look Purple Filter";
             this.purpleBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.purpleBtn.UseVisualStyleBackColor = true;
             this.purpleBtn.Click += new System.EventHandler(this.purpleBtn_Click);
@@ -266,11 +297,12 @@
             this.infraredBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.infraredBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.infraredBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.infraredBtn.Location = new System.Drawing.Point(0, 237);
+            this.infraredBtn.Location = new System.Drawing.Point(2, 146);
+            this.infraredBtn.Margin = new System.Windows.Forms.Padding(2);
             this.infraredBtn.Name = "infraredBtn";
-            this.infraredBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.infraredBtn.Size = new System.Drawing.Size(281, 48);
-            this.infraredBtn.TabIndex = 8;
+            this.infraredBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.infraredBtn.Size = new System.Drawing.Size(211, 39);
+            this.infraredBtn.TabIndex = 1;
             this.infraredBtn.Text = "Infrared Filter";
             this.infraredBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.infraredBtn.UseVisualStyleBackColor = true;
@@ -284,12 +316,13 @@
             this.invertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.invertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.invertBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.invertBtn.Location = new System.Drawing.Point(0, 183);
+            this.invertBtn.Location = new System.Drawing.Point(0, 378);
+            this.invertBtn.Margin = new System.Windows.Forms.Padding(2);
             this.invertBtn.Name = "invertBtn";
-            this.invertBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.invertBtn.Size = new System.Drawing.Size(281, 48);
+            this.invertBtn.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.invertBtn.Size = new System.Drawing.Size(211, 39);
             this.invertBtn.TabIndex = 7;
-            this.invertBtn.Text = "Invert Image";
+            this.invertBtn.Text = "Invert Filter";
             this.invertBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.invertBtn.UseVisualStyleBackColor = true;
             this.invertBtn.Click += new System.EventHandler(this.invertBtn_Click);
@@ -300,41 +333,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(0, 4);
+            this.label1.Location = new System.Drawing.Point(0, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(281, 72);
+            this.label1.Size = new System.Drawing.Size(211, 58);
             this.label1.TabIndex = 0;
             this.label1.Text = "Canvasia";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // aboutBtn
-            // 
-            this.aboutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.aboutBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("aboutBtn.BackgroundImage")));
-            this.aboutBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.aboutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aboutBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.aboutBtn.FlatAppearance.BorderSize = 0;
-            this.aboutBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.aboutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aboutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutBtn.Location = new System.Drawing.Point(3, 886);
-            this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(40, 40);
-            this.aboutBtn.TabIndex = 32;
-            this.aboutBtn.UseVisualStyleBackColor = true;
-            this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
-            // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1582, 953);
+            this.ClientSize = new System.Drawing.Size(1188, 774);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1600, 900);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(1204, 739);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Canvasia";

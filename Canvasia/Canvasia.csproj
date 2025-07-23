@@ -118,13 +118,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\alerts\MessageDisplay.cs" />
-    <Compile Include="src\filters\DetectEdges.cs" />
-    <Compile Include="src\filters\Infrared.cs" />
-    <Compile Include="src\filters\Invert.cs" />
-    <Compile Include="src\filters\LightenDarken.cs" />
-    <Compile Include="src\filters\Purple.cs" />
-    <Compile Include="src\filters\Sunlight .cs" />
-    <Compile Include="src\Image_Class.cs" />
+    <Compile Include="src\filters\Filters.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>

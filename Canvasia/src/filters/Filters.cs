@@ -1,0 +1,254 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Canvasia
+{
+    public class Filters
+    {
+        private static Bitmap ProcessBitmap(Bitmap image, Action<byte[], int, int, int> processPixels)
+        {
+            // Ensure 24bpp
+            if (image.PixelFormat != PixelFormat.Format24bppRgb)
+            {
+                image = image.Clone(new Rectangle(0, 0, image.Width, image.Height),
+                                    PixelFormat.Format24bppRgb);
+            }
+
+            int width = image.Width;
+            int height = image.Height;
+
+            // Lock and copy
+            Rectangle rect = new Rectangle(0, 0, width, height);
+            BitmapData data = image.LockBits(rect, ImageLockMode.ReadWrite, image.PixelFormat);
+
+            int bytesPerPixel = Image.GetPixelFormatSize(image.PixelFormat) / 8; // 3
+            int stride = data.Stride;
+            int totalBytes = stride * height;
+
+            byte[] pixels = new byte[totalBytes];
+            Marshal.Copy(data.Scan0, pixels, 0, totalBytes);
+
+            // Let caller modify pixels
+            processPixels(pixels, width, height, stride);
+
+            // Copy back and unlock
+            Marshal.Copy(pixels, 0, data.Scan0, totalBytes);
+            image.UnlockBits(data);
+
+            return image;
+        }
+
+        // ----------------------------------------------------------------------------------------------------- PURPLE
+        public static Bitmap ApplyPurpleFilter(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        pixels[pos + 1] = (byte)(pixels[pos + 1] * 0.7);
+                    }
+                }
+            });
+        }
+
+        // ----------------------------------------------------------------------------------------------------- DETECT EDGES
+        public static Bitmap ApplyDetectEdges(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                int bytesPerPixel = 3;
+
+                // ---- STEP 1: Threshold to black/white ----
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * bytesPerPixel;
+
+                        byte b = pixels[pos];
+                        byte g = pixels[pos + 1];
+                        byte r = pixels[pos + 2];
+
+                        int avg = (r + g + b) / 3;
+                        byte val = (avg > 127) ? (byte)255 : (byte)0;
+
+                        pixels[pos] = val;
+                        pixels[pos + 1] = val;
+                        pixels[pos + 2] = val;
+                    }
+                }
+
+                // ---- STEP 2: Edge detection on columns ----
+                // Make a copy of thresholded pixels so we can read original values
+                byte[] originalBW = (byte[])pixels.Clone();
+
+                for (int x = 0; x < width; x++)
+                {
+                    bool flag = false;
+                    bool flag2 = false;
+
+                    for (int y = 1; y < height - 1; y++)
+                    {
+                        int posPrev = (y - 1) * stride + x * bytesPerPixel;
+                        int posCurr = y * stride + x * bytesPerPixel;
+                        int posNext = (y + 1) * stride + x * bytesPerPixel;
+
+                        byte prevR = originalBW[posPrev + 2];
+                        byte currR = originalBW[posCurr + 2];
+                        byte nextR = originalBW[posNext + 2];
+
+                        if (prevR == 255 && currR == 0 && !flag)
+                        {
+                            flag2 = false;
+                            flag = true;
+
+                            pixels[posCurr] = 0;
+                            pixels[posCurr + 1] = 0;
+                            pixels[posCurr + 2] = 0;
+                        }
+                        else if (currR == 0 && nextR == 255 && !flag2)
+                        {
+                            flag = false;
+                            flag2 = true;
+
+                            pixels[posCurr] = 0;
+                            pixels[posCurr + 1] = 0;
+                            pixels[posCurr + 2] = 0;
+                        }
+                        else
+                        {
+                            pixels[posCurr] = 255;
+                            pixels[posCurr + 1] = 255;
+                            pixels[posCurr + 2] = 255;
+                        }
+                    }
+                }
+            });
+        }
+
+        // ----------------------------------------------------------------------------------------------------- INFRARED
+        public static Bitmap ApplyInfraredFilter(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+
+                        byte b = pixels[pos];
+                        byte g = pixels[pos + 1];
+                        // byte r = pixels[pos + 2]; // original red not used
+
+                        // invert B and G
+                        byte invB = (byte)(255 - b);
+                        byte invG = (byte)(255 - g);
+                        byte invR = 255; // red forced to max for infrared effect
+
+                        pixels[pos] = invB;
+                        pixels[pos + 1] = invG;
+                        pixels[pos + 2] = invR;
+                    }
+                }
+            });
+        }
+
+        // ----------------------------------------------------------------------------------------------------- INVERT
+        public static Bitmap InvertImage(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        pixels[pos] = (byte)(255 - pixels[pos]);     // Blue
+                        pixels[pos + 1] = (byte)(255 - pixels[pos + 1]); // Green
+                        pixels[pos + 2] = (byte)(255 - pixels[pos + 2]); // Red
+                    }
+                }
+            });
+        }
+
+        // ----------------------------------------------------------------------------------------------------- LIGHTEN & DARKEN
+        public static Bitmap ApplyDarkenFilter(Bitmap image)
+        {
+            double darken = 0.5;
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        pixels[pos] = (byte)(pixels[pos] * darken);
+                        pixels[pos + 1] = (byte)(pixels[pos + 1] * darken);
+                        pixels[pos + 2] = (byte)(pixels[pos + 2] * darken);
+                    }
+                }
+            });
+        }
+
+        public static Bitmap ApplyLightenFilter(Bitmap image)
+        {
+            double lighten = 1.5;
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        int b = (int)(pixels[pos] * lighten);
+                        if (b > 255) b = 255;
+                        pixels[pos] = (byte)b;
+
+                        int g = (int)(pixels[pos + 1] * lighten);
+                        if (g > 255) g = 255;
+                        pixels[pos + 1] = (byte)g;
+
+                        int r = (int)(pixels[pos + 2] * lighten);
+                        if (r > 255) r = 255;
+                        pixels[pos + 2] = (byte)r;
+                    }
+                }
+            });
+        }
+
+        // ----------------------------------------------------------------------------------------------------- SUNLIGHT
+        public static Bitmap ApplySunlightFilter(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        int newBlue = (int)(pixels[pos] * 0.888);
+                        if (newBlue > 255) newBlue = 255;
+                        pixels[pos] = (byte)newBlue;
+                    }
+                }
+            });
+        }
+    }
+}
