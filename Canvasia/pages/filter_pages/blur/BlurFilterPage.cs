@@ -18,20 +18,21 @@ namespace Canvasia.pages.filter_pages.blur
         {
             InitializeComponent();
 
-            if (Program.imgBefore != null) pictureBox1.Image = Program.imgBefore;
-            if (Program.imgAfter != null) pictureBox2.Image = Program.imgAfter;
-            if (Program.index == 0)
+            if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {
-                undoBtn.BackColor = Color.Gray;
-                undoBtn.Enabled = false;
+                pictureBox1.Image = Program.stack[Program.index];
             }
-            redoBtn.BackColor = Color.Gray;
+            else pictureBox1.Image = null;
+
+            undoBtn.Enabled = Program.index > 0;
             redoBtn.Enabled = false;
         }
 
+
         private void loadBtn_Click(object sender, EventArgs e)
         {
-            PhotoManager.LoadPhoto(pictureBox1, pictureBox2);
+            PhotoManager.LoadPhoto();
+            pictureBox1.Image = Program.stack.LastOrDefault();
         }
 
         private void applyFilterBtn_Click(object sender, EventArgs e)
@@ -48,35 +49,18 @@ namespace Canvasia.pages.filter_pages.blur
                 return;
             }
 
-            using (var temp = pictureBox2.Image)
+            if (pictureBox2.Image != null)
             {
-                Bitmap bmp = new Bitmap(temp);
-                pictureBox1.Image = bmp;
-                Bitmap filtered = Filters.ApplyBlurFilter(new Bitmap(bmp), trackBar1.Value);
-                pictureBox2.Image = filtered;
-                Program.imgBefore = pictureBox1.Image;
-                Program.imgAfter = pictureBox2.Image;
-
-                if (Program.index == 0)
-                {
-                    Program.stack.Add(new KeyValuePair<Image, Image>(null, null));
-                    Program.index++;
-                    Program.stack.Add(new KeyValuePair<Image, Image>((Image)Program.imgBefore.Clone(), (Image)Program.imgBefore.Clone()));
-                    Program.index++;
-                }
-                Program.stack.Add(
-                                new KeyValuePair<Image, Image>(
-                                    (Image)Program.imgBefore.Clone(),
-                                    (Image)Program.imgAfter.Clone()
-                                )
-                            );
-                Program.index = Program.stack.Count - 1;
-                Program.index++;
-                redoBtn.BackColor = Color.Gray;
-                redoBtn.Enabled = false;
-                undoBtn.BackColor = downloadBtn.BackColor;
-                undoBtn.Enabled = true;
+                pictureBox1.Image = pictureBox2.Image;
             }
+
+            PhotoManager.ApplyFilter(pictureBox1, pictureBox2, original =>
+                Filters.ApplyBlurFilter(original, trackBar1.Value)
+            );
+
+            // Update undo/redo buttons
+            redoBtn.Enabled = false;
+            undoBtn.Enabled = Program.stack.Count > 1;
         }
 
         private void downloadBtn_Click(object sender, EventArgs e)
@@ -88,6 +72,8 @@ namespace Canvasia.pages.filter_pages.blur
         {
             PhotoManager.ClearPhoto(pictureBox1);
             PhotoManager.ClearPhoto(pictureBox2);
+            undoBtn.Enabled = false;
+            redoBtn.Enabled = false;
             trackBar1.Value = 0;
             blurRadiusLabel.Text = "0 px";
         }
@@ -99,41 +85,12 @@ namespace Canvasia.pages.filter_pages.blur
 
         private void redoBtn_Click(object sender, EventArgs e)
         {
-            // we can only redo if there's a next item
-            if (Program.index < Program.stack.Count - 1)
-            {
-                undoBtn.BackColor = downloadBtn.BackColor;
-                undoBtn.Enabled = true;
-
-                Program.index++; // move one step forward
-                pictureBox1.Image = Program.stack[Program.index].Key;
-                pictureBox2.Image = Program.stack[Program.index].Value;
-            }
-            if (Program.index == Program.stack.Count - 1)
-            {
-                // Already at the latest step
-                redoBtn.BackColor = Color.Gray;
-                redoBtn.Enabled = false;
-            }
+            PhotoManager.RedoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
         }
 
         private void undoBtn_Click(object sender, EventArgs e)
         {
-            if (Program.index > 0)
-            {
-                // Already at the latest step
-                redoBtn.BackColor = downloadBtn.BackColor;
-                redoBtn.Enabled = true;
-                Program.index--; // move one step back
-                pictureBox1.Image = Program.stack[Program.index].Key;
-                pictureBox2.Image = Program.stack[Program.index].Value;
-            }
-            if (Program.index == 0)
-            {
-                // Already at the oldest step
-                undoBtn.BackColor = Color.Gray;
-                undoBtn.Enabled = false;
-            }
+            PhotoManager.UndoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
         }
     }
 }

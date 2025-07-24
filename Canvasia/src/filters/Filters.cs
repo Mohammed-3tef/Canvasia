@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Canvasia.src;
+using Canvasia.src.display;
 
 namespace Canvasia
 {
@@ -365,6 +366,108 @@ namespace Canvasia
                 // Copy blurred result into original pixel buffer
                 Buffer.BlockCopy(result, 0, pixels, 0, pixels.Length);
             });
+        }
+
+        // ------------------------------------------------------------------------------------------ FLIP IMAGE
+        public static Bitmap FlipImage(Bitmap original, bool vertically = false)
+        {
+            return ProcessBitmap(original, (pixels, width, height, stride) =>
+            {
+                int bytesPerPixel = 3;
+                if (vertically)
+                {
+                    // Flip vertically
+                    for (int y = 0; y < height / 2; y++)
+                    {
+                        int row1 = y * stride;
+                        int row2 = (height - 1 - y) * stride;
+                        for (int x = 0; x < width; x++)
+                        {
+                            int pos1 = row1 + x * bytesPerPixel;
+                            int pos2 = row2 + x * bytesPerPixel;
+                            // Swap pixels
+                            for (int c = 0; c < bytesPerPixel; c++)
+                            {
+                                byte temp = pixels[pos1 + c];
+                                pixels[pos1 + c] = pixels[pos2 + c];
+                                pixels[pos2 + c] = temp;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    // Flip horizontally
+                    for (int y = 0; y < height; y++)
+                    {
+                        int row = y * stride;
+                        for (int x = 0; x < width / 2; x++)
+                        {
+                            int pos1 = row + x * bytesPerPixel;
+                            int pos2 = row + (width - 1 - x) * bytesPerPixel;
+                            // Swap pixels
+                            for (int c = 0; c < bytesPerPixel; c++)
+                            {
+                                byte temp = pixels[pos1 + c];
+                                pixels[pos1 + c] = pixels[pos2 + c];
+                                pixels[pos2 + c] = temp;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ------------------------------------------------------------------------------------------ ROTATE IMAGE
+        public static Bitmap RotateImage(Bitmap original, int angle)
+        {
+            // Normalize angle to [0, 360)
+            angle = angle % 360;
+            if (angle < 0) angle += 360;
+
+            // Calculate new dimensions
+            int newWidth = original.Width;
+            int newHeight = original.Height;
+            if (angle == 90 || angle == 270)
+            {
+                newWidth = original.Height;
+                newHeight = original.Width;
+            }
+
+            Bitmap rotated = new Bitmap(newWidth, newHeight);
+            using (Graphics g = Graphics.FromImage(rotated))
+            {
+                g.Clear(Color.Transparent);
+                g.TranslateTransform(newWidth / 2f, newHeight / 2f);
+                g.RotateTransform(angle);
+                g.TranslateTransform(-original.Width / 2f, -original.Height / 2f);
+                g.DrawImage(original, new Point(0, 0));
+            }
+            return rotated;
+        }
+
+        // ------------------------------------------------------------------------------------------ CROP IMAGE
+        public static Bitmap CropImage(Bitmap original, int startX, int startY, int cropWidth, int cropHeight)
+        {
+            // تحقق من أن جزء القص داخل حدود الصورة
+            int adjustedWidth = Math.Min(cropWidth, original.Width - startX);
+            int adjustedHeight = Math.Min(cropHeight, original.Height - startY);
+
+            if (adjustedWidth <= 0 || adjustedHeight <= 0)
+            {
+                MessageDisplay.ShowError("Crop area is outside the image bounds.");
+                return null;
+            }
+
+            Rectangle cropRect = new Rectangle(startX, startY, adjustedWidth, adjustedHeight);
+            Bitmap cropped = new Bitmap(adjustedWidth, adjustedHeight);
+
+            using (Graphics g = Graphics.FromImage(cropped))
+            {
+                g.DrawImage(original, new Rectangle(0, 0, adjustedWidth, adjustedHeight), cropRect, GraphicsUnit.Pixel);
+            }
+
+            return cropped;
         }
     }
 }

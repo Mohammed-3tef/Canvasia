@@ -91,11 +91,23 @@
     <Compile Include="pages\filter_pages\blur\BlurFilterPage.Designer.cs">
       <DependentUpon>BlurFilterPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\filter_pages\crop\CropImagePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\crop\CropImagePage.Designer.cs">
+      <DependentUpon>CropImagePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\filter_pages\detectEdges\DetectEdgesFilterPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="pages\filter_pages\detectEdges\DetectEdgesFilterPage.Designer.cs">
       <DependentUpon>DetectEdgesFilterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\filter_pages\flip\FlipImagePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\flip\FlipImagePage.Designer.cs">
+      <DependentUpon>FlipImagePage.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\filter_pages\grayscale\GrayscaleFilterPage.cs">
       <SubType>Form</SubType>
@@ -127,6 +139,18 @@
     <Compile Include="pages\filter_pages\purple\PurpleFilterPage.Designer.cs">
       <DependentUpon>PurpleFilterPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\filter_pages\resize\ResizeImagePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\resize\ResizeImagePage.Designer.cs">
+      <DependentUpon>ResizeImagePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\filter_pages\rotate\RotateImagePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\rotate\RotateImagePage.Designer.cs">
+      <DependentUpon>RotateImagePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\filter_pages\sunlight\SunlightFilterPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,8 +174,14 @@
     <EmbeddedResource Include="pages\filter_pages\blur\BlurFilterPage.resx">
       <DependentUpon>BlurFilterPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\crop\CropImagePage.resx">
+      <DependentUpon>CropImagePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\detectEdges\DetectEdgesFilterPage.resx">
       <DependentUpon>DetectEdgesFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\flip\FlipImagePage.resx">
+      <DependentUpon>FlipImagePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\grayscale\GrayscaleFilterPage.resx">
       <DependentUpon>GrayscaleFilterPage.cs</DependentUpon>
@@ -167,6 +197,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\purple\PurpleFilterPage.resx">
       <DependentUpon>PurpleFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\resize\ResizeImagePage.resx">
+      <DependentUpon>ResizeImagePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\rotate\RotateImagePage.resx">
+      <DependentUpon>RotateImagePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\sunlight\SunlightFilterPage.resx">
       <DependentUpon>SunlightFilterPage.cs</DependentUpon>

@@ -2,7 +2,11 @@
 using Canvasia.pages.detectEdges;
 using Canvasia.pages.filter_pages.blackAndWhite;
 using Canvasia.pages.filter_pages.blur;
+using Canvasia.pages.filter_pages.crop;
+using Canvasia.pages.filter_pages.flip;
 using Canvasia.pages.filter_pages.grayscale;
+using Canvasia.pages.filter_pages.resize;
+using Canvasia.pages.filter_pages.rotate;
 using Canvasia.pages.infrared;
 using Canvasia.pages.invert;
 using Canvasia.pages.lightenDarken;
@@ -136,6 +140,30 @@ namespace Canvasia
         {
             HighlightActiveButton((Button)sender);
             OpenForm(new BlurFilterPage());
+        }
+
+        private void flipBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new FlipImagePage());
+        }
+
+        private void rotateBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new RotateImagePage());
+        }
+
+        private void cropBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new CropImagePage());
+        }
+
+        private void resizeBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new ResizeImagePage());
         }
     }
 }

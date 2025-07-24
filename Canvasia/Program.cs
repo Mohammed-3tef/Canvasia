@@ -9,10 +9,7 @@ namespace Canvasia
 {
     internal static class Program
     {
-        internal static Image imgBefore = null;
-        internal static Image imgAfter = null;
-
-        public static List<KeyValuePair<Image, Image>> stack = new List<KeyValuePair<Image, Image>>();
+        public static List<Image> stack = new List<Image>();
         public static int index = 0;
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]

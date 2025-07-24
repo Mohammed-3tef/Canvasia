@@ -11,7 +11,7 @@ namespace Canvasia.src
 {
     public class PhotoManager
     {
-        public static void LoadPhoto(PictureBox pictureBox1, PictureBox pictureBox2)
+        public static void LoadPhoto()
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
@@ -19,21 +19,28 @@ namespace Canvasia.src
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 Image loadedImage = Image.FromFile(openDialog.FileName);
-                pictureBox1.Image = loadedImage;
-                pictureBox2.Image = loadedImage;
+                Program.stack.Add(loadedImage);
             }
         }
 
-        public static void ClearPhoto(PictureBox pictureBox)
+        public static void ApplyFilter(PictureBox pictureBox1, PictureBox pictureBox2, Func<Bitmap, Bitmap> filterFunction)
         {
-            Program.imgBefore = null;
-            Program.imgAfter = null;
-            pictureBox.Image = null;
+            if (pictureBox1.Image == null) return;
 
-            if (pictureBox.Image != null)
+            using (var temp = new Bitmap(pictureBox1.Image))
             {
-                Program.stack.Add(new KeyValuePair<Image, Image>(null, null));
-                Program.index++;
+                Bitmap filtered = filterFunction(temp);
+                pictureBox2.Image = filtered;
+
+                // مسح التعديلات المستقبلية إذا رجعنا بالتاريخ وعدّلنا
+                if (Program.index < Program.stack.Count - 1)
+                {
+                    Program.stack.RemoveRange(Program.index + 1, Program.stack.Count - Program.index - 1);
+                }
+
+                // إضافة الحالة الجديدة إلى سجل التعديلات
+                Program.stack.Add(filtered);
+                Program.index = Program.stack.Count - 1;
             }
         }
 
@@ -58,6 +65,52 @@ namespace Canvasia.src
                     MessageDisplay.ShowSuccess("Image saved successfully.");
                 }
             }
+        }
+
+        public static void UndoPhoto(PictureBox pictureBox1, PictureBox pictureBox2, Button undoBtn, Button redoBtn)
+        {
+            if (Program.index <= 0 || Program.stack.Count == 0) return;
+
+            Program.index--;
+
+            // استرجاع الصور من الستاك مع الحماية
+            if (Program.index >= 0 && Program.index < Program.stack.Count)
+            {
+                var keyImg = Program.stack[Program.index];
+
+                pictureBox1.Image = keyImg != null ? new Bitmap(keyImg) : null;
+                pictureBox2.Image = null;
+            }
+
+            undoBtn.Enabled = Program.index > 0;
+            redoBtn.Enabled = Program.index < Program.stack.Count - 1;
+        }
+
+        public static void RedoPhoto(PictureBox pictureBox1, PictureBox pictureBox2, Button undoBtn, Button redoBtn)
+        {
+            if (Program.index >= Program.stack.Count - 1) return;
+
+            Program.index++;
+
+            // استرجاع الصور من الستاك مع الحماية
+            if (Program.index >= 0 && Program.index < Program.stack.Count)
+            {
+                var keyImg = Program.stack[Program.index];
+
+                pictureBox1.Image = keyImg != null ? new Bitmap(keyImg) : null;
+                pictureBox2.Image = null;
+            }
+
+            undoBtn.Enabled = Program.index > 0;
+            redoBtn.Enabled = Program.index < Program.stack.Count - 1;
+        }
+
+        public static void ClearPhoto(PictureBox pictureBox)
+        {
+            pictureBox.Image?.Dispose();
+            pictureBox.Image = null;
+            Program.stack.Clear();
+            Program.index = 0;
         }
     }
 }
