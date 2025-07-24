@@ -79,11 +79,29 @@
     <Compile Include="pages\about_page\AboutPage.Designer.cs">
       <DependentUpon>AboutPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\filter_pages\blackAndWhite\BlackAndWhiteFilterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\blackAndWhite\BlackAndWhiteFilterPage.Designer.cs">
+      <DependentUpon>BlackAndWhiteFilterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\filter_pages\blur\BlurFilterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\blur\BlurFilterPage.Designer.cs">
+      <DependentUpon>BlurFilterPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\filter_pages\detectEdges\DetectEdgesFilterPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="pages\filter_pages\detectEdges\DetectEdgesFilterPage.Designer.cs">
       <DependentUpon>DetectEdgesFilterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pages\filter_pages\grayscale\GrayscaleFilterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\grayscale\GrayscaleFilterPage.Designer.cs">
+      <DependentUpon>GrayscaleFilterPage.cs</DependentUpon>
     </Compile>
     <Compile Include="pages\filter_pages\infrared\InfraredFilterPage.cs">
       <SubType>Form</SubType>
@@ -119,14 +137,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\alerts\MessageDisplay.cs" />
     <Compile Include="src\filters\Filters.cs" />
+    <Compile Include="src\PhotoManager.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\about_page\AboutPage.resx">
       <DependentUpon>AboutPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\blackAndWhite\BlackAndWhiteFilterPage.resx">
+      <DependentUpon>BlackAndWhiteFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\blur\BlurFilterPage.resx">
+      <DependentUpon>BlurFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\detectEdges\DetectEdgesFilterPage.resx">
       <DependentUpon>DetectEdgesFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\grayscale\GrayscaleFilterPage.resx">
+      <DependentUpon>GrayscaleFilterPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\infrared\InfraredFilterPage.resx">
       <DependentUpon>InfraredFilterPage.cs</DependentUpon>

@@ -1,5 +1,8 @@
 ﻿using Canvasia.pages.about_page;
 using Canvasia.pages.detectEdges;
+using Canvasia.pages.filter_pages.blackAndWhite;
+using Canvasia.pages.filter_pages.blur;
+using Canvasia.pages.filter_pages.grayscale;
 using Canvasia.pages.infrared;
 using Canvasia.pages.invert;
 using Canvasia.pages.lightenDarken;
@@ -108,7 +111,31 @@ namespace Canvasia
 
         private void aboutBtn_Click(object sender, EventArgs e)
         {
+            foreach (Control control in this.panel1.Controls)
+            {
+                if (control is Button btn)
+                    btn.BackColor = SystemColors.ControlLight; // Reset all
+            }
+
             OpenForm(new AboutPage());
+        }
+
+        private void grayscaleBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new GrayscaleFilterPage());
+        }
+
+        private void blackAndWhiteBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new BlackAndWhiteFilterPage());
+        }
+
+        private void blurBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new BlurFilterPage());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Canvasia.src;
+using Canvasia.src.display;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,40 +23,53 @@ namespace Canvasia.pages.purple
             if (Program.imgAfter != null) pictureBox2.Image = Program.imgAfter;
         }
 
-        private void LoadPhoto()
-        {
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
-
-            if (openDialog.ShowDialog() == DialogResult.OK)
-            {
-                Image loadedImage = Image.FromFile(openDialog.FileName);
-                pictureBox1.Image = loadedImage;
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox2.Image = loadedImage;
-                pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            }
-        }
-
         private void loadPhotoBtn_Click(object sender, EventArgs e)
         {
-            LoadPhoto();
+            PhotoManager.LoadPhoto(pictureBox1, pictureBox2);
         }
 
         private void applyFilterBtn_Click(object sender, EventArgs e)
         {
+            if (pictureBox1.Image == null)
+            {
+                MessageDisplay.ShowWarning("Please load an image before applying the filter.");
+                return;
+            }
+
+            if (trackBar1.Value == 0)
+            {
+                MessageDisplay.ShowWarning("Please adjust the radius before applying the filter.");
+                return;
+            }
+
             using (var temp = pictureBox2.Image)
             {
                 Bitmap bmp = new Bitmap(temp);
                 pictureBox1.Image = bmp;
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                Bitmap filtered = Filters.ApplyPurpleFilter(new Bitmap(bmp));
+                Bitmap filtered = Filters.ApplyPurpleFilter(new Bitmap(bmp), ((float)trackBar1.Value /10));
                 pictureBox2.Image = filtered;
-                pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
 
                 Program.imgBefore = pictureBox1.Image;
                 Program.imgAfter = pictureBox2.Image;
             }
+        }
+
+        private void downloadBtn_Click(object sender, EventArgs e)
+        {
+            PhotoManager.DownloadPhoto(pictureBox2);
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            PhotoManager.ClearPhoto(pictureBox1);
+            PhotoManager.ClearPhoto(pictureBox2);
+            trackBar1.Value = 0;
+            radiusLabel.Text = "0.0";
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            radiusLabel.Text = $"{trackBar1.Value / 10.0:F1}";
         }
     }
 }

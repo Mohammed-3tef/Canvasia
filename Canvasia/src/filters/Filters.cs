@@ -44,8 +44,8 @@ namespace Canvasia
             return image;
         }
 
-        // ----------------------------------------------------------------------------------------------------- PURPLE
-        public static Bitmap ApplyPurpleFilter(Bitmap image)
+        // ------------------------------------------------------------------------------------------ PURPLE
+        public static Bitmap ApplyPurpleFilter(Bitmap image, float intensity = 0.7f)
         {
             return ProcessBitmap(image, (pixels, width, height, stride) =>
             {
@@ -55,13 +55,13 @@ namespace Canvasia
                     for (int x = 0; x < width; x++)
                     {
                         int pos = row + x * 3;
-                        pixels[pos + 1] = (byte)(pixels[pos + 1] * 0.7);
+                        pixels[pos + 1] = (byte)(pixels[pos + 1] * intensity);
                     }
                 }
             });
         }
 
-        // ----------------------------------------------------------------------------------------------------- DETECT EDGES
+        // ------------------------------------------------------------------------------------------ DETECT EDGES
         public static Bitmap ApplyDetectEdges(Bitmap image)
         {
             return ProcessBitmap(image, (pixels, width, height, stride) =>
@@ -137,8 +137,8 @@ namespace Canvasia
             });
         }
 
-        // ----------------------------------------------------------------------------------------------------- INFRARED
-        public static Bitmap ApplyInfraredFilter(Bitmap image)
+        // ------------------------------------------------------------------------------------------ INFRARED
+        public static Bitmap ApplyInfraredFilter(Bitmap image, float intensity = 1.0f)
         {
             return ProcessBitmap(image, (pixels, width, height, stride) =>
             {
@@ -151,22 +151,22 @@ namespace Canvasia
 
                         byte b = pixels[pos];
                         byte g = pixels[pos + 1];
-                        // byte r = pixels[pos + 2]; // original red not used
 
-                        // invert B and G
+                        // Compute inverted channels
                         byte invB = (byte)(255 - b);
                         byte invG = (byte)(255 - g);
-                        byte invR = 255; // red forced to max for infrared effect
+                        byte invR = 255;
 
-                        pixels[pos] = invB;
-                        pixels[pos + 1] = invG;
-                        pixels[pos + 2] = invR;
+                        // Blend between original and infrared using intensity
+                        pixels[pos] = (byte)(b + (invB - b) * intensity);       // B
+                        pixels[pos + 1] = (byte)(g + (invG - g) * intensity);   // G
+                        pixels[pos + 2] = (byte)(pixels[pos + 2] + (invR - pixels[pos + 2]) * intensity); // R
                     }
                 }
             });
         }
 
-        // ----------------------------------------------------------------------------------------------------- INVERT
+        // ------------------------------------------------------------------------------------------ INVERT
         public static Bitmap InvertImage(Bitmap image)
         {
             return ProcessBitmap(image, (pixels, width, height, stride) =>
@@ -185,7 +185,7 @@ namespace Canvasia
             });
         }
 
-        // ----------------------------------------------------------------------------------------------------- LIGHTEN & DARKEN
+        // ------------------------------------------------------------------------------------------ LIGHTEN & DARKEN
         public static Bitmap ApplyDarkenFilter(Bitmap image)
         {
             double darken = 0.5;
@@ -232,7 +232,7 @@ namespace Canvasia
             });
         }
 
-        // ----------------------------------------------------------------------------------------------------- SUNLIGHT
+        // ------------------------------------------------------------------------------------------ SUNLIGHT
         public static Bitmap ApplySunlightFilter(Bitmap image)
         {
             return ProcessBitmap(image, (pixels, width, height, stride) =>
@@ -248,6 +248,118 @@ namespace Canvasia
                         pixels[pos] = (byte)newBlue;
                     }
                 }
+            });
+        }
+
+        // ------------------------------------------------------------------------------------------ GRAYSCALE
+        public static Bitmap ApplyGrayscaleFilter(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        // Calculate average
+                        byte b = pixels[pos];
+                        byte g = pixels[pos + 1];
+                        byte r = pixels[pos + 2];
+                        byte avg = (byte)((r + g + b) / 3);
+                        // Set all channels to average
+                        pixels[pos] = avg;
+                        pixels[pos + 1] = avg;
+                        pixels[pos + 2] = avg;
+                    }
+                }
+            });
+        }
+
+        // ------------------------------------------------------------------------------------------ BLACK AND WHITE
+        public static Bitmap ApplyBlackAndWhiteFilter(Bitmap image)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    int row = y * stride;
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = row + x * 3;
+                        // Calculate average
+                        byte b = pixels[pos];
+                        byte g = pixels[pos + 1];
+                        byte r = pixels[pos + 2];
+                        byte avg = (byte)((r + g + b) / 3);
+                        // Set all channels to black or white based on average
+                        byte val = (avg > 127) ? (byte)255 : (byte)0;
+                        pixels[pos] = val;
+                        pixels[pos + 1] = val;
+                        pixels[pos + 2] = val;
+                    }
+                }
+            });
+        }
+
+        // ------------------------------------------------------------------------------------------ BLUR
+        public static Bitmap ApplyBlurFilter(Bitmap image, int radius = 25)
+        {
+            return ProcessBitmap(image, (pixels, width, height, stride) =>
+            {
+                int area = (2 * radius + 1) * (2 * radius + 1);
+
+                // Build 3D prefix sum array: [width + 1, height + 1, 3]
+                long[,,] prefix = new long[width + 1, height + 1, 3];
+
+                for (int y = 0; y < height; y++)
+                {
+                    for (int x = 0; x < width; x++)
+                    {
+                        int pos = y * stride + x * 3;
+                        for (int c = 0; c < 3; c++)
+                        {
+                            long val = pixels[pos + c];
+                            prefix[x + 1, y + 1, c] =
+                                val +
+                                prefix[x, y + 1, c] +
+                                prefix[x + 1, y, c] -
+                                prefix[x, y, c];
+                        }
+                    }
+                }
+
+                // Create output buffer
+                byte[] result = new byte[pixels.Length];
+
+                for (int y = 0; y < height; y++)
+                {
+                    int y1 = Math.Max(0, y - radius);
+                    int y2 = Math.Min(height - 1, y + radius);
+
+                    for (int x = 0; x < width; x++)
+                    {
+                        int x1 = Math.Max(0, x - radius);
+                        int x2 = Math.Min(width - 1, x + radius);
+
+                        int count = (x2 - x1 + 1) * (y2 - y1 + 1);
+                        int pos = y * stride + x * 3;
+
+                        for (int c = 0; c < 3; c++)
+                        {
+                            long total =
+                                prefix[x2 + 1, y2 + 1, c] -
+                                prefix[x1, y2 + 1, c] -
+                                prefix[x2 + 1, y1, c] +
+                                prefix[x1, y1, c];
+
+                            result[pos + c] = (byte)(total / count);
+                        }
+                    }
+                }
+
+                // Copy blurred result into original pixel buffer
+                Buffer.BlockCopy(result, 0, pixels, 0, pixels.Length);
             });
         }
     }

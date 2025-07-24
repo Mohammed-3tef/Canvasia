@@ -1,22 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\FCAI-PC\\_gui_\\Canvasia\\",
+  "WorkspaceRootPath": "D:\\Projects\\Canvasia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\pages\\filter_pages\\purple\\purplefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\purple\\purplefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\pages\\filter_pages\\infrared\\infraredfilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\infrared\\infraredfilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\pages\\filter_pages\\purple\\purplefilterpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\purple\\purplefilterpage.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\pages\\filter_pages\\infrared\\infraredfilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\infrared\\infraredfilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\src\\filters\\filters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\src\\filters\\filters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.cs [Design]",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\MainWindow.cs",
-              "RelativeDocumentMoniker": "Canvasia\\MainWindow.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\MainWindow.cs [Design]",
-              "RelativeToolTip": "Canvasia\\MainWindow.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "InfraredFilterPage.cs",
+              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs",
+              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs",
+              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs",
+              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAcwCkAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T22:19:38.892Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PurpleFilterPage.Designer.cs",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.Designer.cs",
-              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.Designer.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.Designer.cs",
-              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.Designer.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCkAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T22:15:32.502Z",
+              "WhenOpened": "2025-07-24T00:33:55.329Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PurpleFilterPage.cs [Design]",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs",
-              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs [Design]",
-              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "Filters.cs",
+              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\src\\filters\\Filters.cs",
+              "RelativeDocumentMoniker": "Canvasia\\src\\filters\\Filters.cs",
+              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\src\\filters\\Filters.cs",
+              "RelativeToolTip": "Canvasia\\src\\filters\\Filters.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwIwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T22:07:57.221Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InfraredFilterPage.cs [Design]",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs",
-              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs [Design]",
-              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\infrared\\InfraredFilterPage.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T22:07:53.199Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-07-24T00:25:33.275Z",
+              "EditorCaption": ""
             }
           ]
         }

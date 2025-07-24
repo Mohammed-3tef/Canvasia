@@ -10,11 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Canvasia.pages.sunlight
+namespace Canvasia.pages.filter_pages.grayscale
 {
-    public partial class SunlightFilterPage : Form
+    public partial class GrayscaleFilterPage : Form
     {
-        public SunlightFilterPage()
+        public GrayscaleFilterPage()
         {
             InitializeComponent();
 
@@ -39,9 +39,8 @@ namespace Canvasia.pages.sunlight
             {
                 Bitmap bmp = new Bitmap(temp);
                 pictureBox1.Image = bmp;
-                Bitmap filtered = Filters.ApplySunlightFilter(new Bitmap(bmp));
+                Bitmap filtered = Filters.ApplyGrayscaleFilter(new Bitmap(bmp));
                 pictureBox2.Image = filtered;
-
                 Program.imgBefore = pictureBox1.Image;
                 Program.imgAfter = pictureBox2.Image;
             }

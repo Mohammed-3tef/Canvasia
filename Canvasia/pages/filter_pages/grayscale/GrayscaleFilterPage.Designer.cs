@@ -1,6 +1,6 @@
-﻿namespace Canvasia.pages.invert
+﻿namespace Canvasia.pages.filter_pages.grayscale
 {
-    partial class InvertImagePage
+    partial class GrayscaleFilterPage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvertImagePage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GrayscaleFilterPage));
             this.loadPhotoBtn = new System.Windows.Forms.Button();
             this.applyFilter = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,10 +40,12 @@
             this.downloadBtn = new System.Windows.Forms.Button();
             this.clearBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // loadPhotoBtn
@@ -81,7 +83,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(10, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(565, 394);
+            this.pictureBox1.Size = new System.Drawing.Size(565, 429);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -93,7 +95,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(585, 10);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(565, 394);
+            this.pictureBox2.Size = new System.Drawing.Size(565, 429);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -110,38 +112,36 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 88);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 84);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 516);
-            this.tableLayoutPanel1.TabIndex = 14;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 498);
+            this.tableLayoutPanel1.TabIndex = 26;
             // 
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(583, 409);
+            this.label3.Location = new System.Drawing.Point(583, 444);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label3.Size = new System.Drawing.Size(569, 102);
+            this.label3.Size = new System.Drawing.Size(569, 49);
             this.label3.TabIndex = 11;
             this.label3.Text = "After:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 409);
+            this.label2.Location = new System.Drawing.Point(8, 444);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label2.Size = new System.Drawing.Size(569, 102);
+            this.label2.Size = new System.Drawing.Size(569, 49);
             this.label2.TabIndex = 10;
             this.label2.Text = "Before:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -156,13 +156,13 @@
             this.tableLayoutPanel2.Controls.Add(this.clearBtn, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.loadPhotoBtn, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.applyFilter, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(12, 654);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 650);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1160, 96);
-            this.tableLayoutPanel2.TabIndex = 16;
+            this.tableLayoutPanel2.TabIndex = 28;
             // 
             // downloadBtn
             // 
@@ -197,32 +197,47 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(11, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1160, 75);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Invert Image";
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Grayscale Filter";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // InvertImagePage
+            // trackBar1
+            // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBar1.Location = new System.Drawing.Point(308, 588);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(566, 56);
+            this.trackBar1.SmallChange = 5;
+            this.trackBar1.TabIndex = 36;
+            this.trackBar1.TickFrequency = 5;
+            // 
+            // GrayscaleFilterPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1199, 798);
-            this.Name = "InvertImagePage";
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
+            this.Name = "GrayscaleFilterPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Canvasia";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -239,5 +254,6 @@
         private System.Windows.Forms.Button downloadBtn;
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
