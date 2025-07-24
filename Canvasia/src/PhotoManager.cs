@@ -29,6 +29,12 @@ namespace Canvasia.src
             Program.imgBefore = null;
             Program.imgAfter = null;
             pictureBox.Image = null;
+
+            if (pictureBox.Image != null)
+            {
+                Program.stack.Add(new KeyValuePair<Image, Image>(null, null));
+                Program.index++;
+            }
         }
 
         public static void DownloadPhoto(PictureBox pictureBox)
