@@ -6,6 +6,7 @@ using Canvasia.pages.filter_pages.blur;
 using Canvasia.pages.filter_pages.crop;
 using Canvasia.pages.filter_pages.flip;
 using Canvasia.pages.filter_pages.grayscale;
+using Canvasia.pages.filter_pages.merge;
 using Canvasia.pages.filter_pages.resize;
 using Canvasia.pages.filter_pages.rotate;
 using Canvasia.pages.filter_pages.skew;
@@ -178,6 +179,12 @@ namespace Canvasia
         {
             HighlightActiveButton((Button)sender);
             OpenForm(new SkewFilterPage());
+        }
+
+        private void mergeBtn_Click(object sender, EventArgs e)
+        {
+            HighlightActiveButton((Button)sender);
+            OpenForm(new MergeFilterPage());
         }
     }
 }

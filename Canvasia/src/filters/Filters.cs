@@ -490,11 +490,36 @@ namespace Canvasia
         }
 
         // ------------------------------------------------------------------------------------------ SKEW IMAGE
-        public static Bitmap skewImage(Bitmap original)
+        public static Bitmap SkewImage(Bitmap original, float skewAngle)
         {
-            Bitmap img = null;
+            float radians = skewAngle * (float)Math.PI / 180f;
+            float shearX = (float)Math.Tan(radians); // e.g., tan(30°) ≈ 0.577
 
-            return img;
+            int skewOffset = (int)(original.Height * Math.Abs(shearX));
+            int newWidth = original.Width + skewOffset;
+
+            Bitmap skewed = new Bitmap(newWidth, original.Height);
+
+            using (Graphics g = Graphics.FromImage(skewed))
+            {
+                g.Clear(Color.Transparent);
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                var transform = new System.Drawing.Drawing2D.Matrix();
+
+                // Clockwise: shift bottom to right -> negative shear
+                transform.Shear(-shearX, 0);
+
+                // Translate right to avoid cropping (since negative shear shifts left)
+                transform.Translate(skewOffset, 0);
+
+                g.Transform = transform;
+                g.DrawImage(original, new Point(0, 0));
+            }
+
+            return skewed;
         }
 
         // ------------------------------------------------------------------------------------------ ADD FRAME

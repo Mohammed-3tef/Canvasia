@@ -277,7 +277,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1160, 75);
             this.label1.TabIndex = 45;
-            this.label1.Text = "Flip Image";
+            this.label1.Text = "Rotate Image";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // rotate270Degree

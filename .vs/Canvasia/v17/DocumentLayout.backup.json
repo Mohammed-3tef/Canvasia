@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Projects\\Canvasia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\pages\\filter_pages\\merge\\mergefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\merge\\mergefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\pages\\filter_pages\\merge\\mergefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\merge\\mergefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.cs",
-              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\MainWindow.cs",
-              "RelativeDocumentMoniker": "Canvasia\\MainWindow.cs",
-              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\MainWindow.cs*",
-              "RelativeToolTip": "Canvasia\\MainWindow.cs*",
-              "ViewState": "AgIAAJAAAAAAAAAAAAA+wKYAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "MergeFilterPage.cs [Design]",
+              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
+              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
+              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs [Design]*",
+              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T15:35:01.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-25T17:37:36.2Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.cs [Design]",
-              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\MainWindow.cs",
-              "RelativeDocumentMoniker": "Canvasia\\MainWindow.cs",
-              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\MainWindow.cs [Design]*",
-              "RelativeToolTip": "Canvasia\\MainWindow.cs [Design]*",
+              "DocumentIndex": 0,
+              "Title": "MergeFilterPage.cs",
+              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
+              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
+              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs*",
+              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs*",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAnwBgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T15:33:13.214Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-07-25T17:31:29.875Z",
+              "EditorCaption": ""
             }
           ]
         }
