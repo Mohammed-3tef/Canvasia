@@ -11,7 +11,7 @@ namespace Canvasia.src
 {
     public class PhotoManager
     {
-        public static void LoadPhoto()
+        public static void LoadPhoto(PictureBox pictureBox2)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
@@ -21,6 +21,10 @@ namespace Canvasia.src
                 Image loadedImage = Image.FromFile(openDialog.FileName);
                 Program.stack.Add(loadedImage);
             }
+
+
+            Program.index++;
+            pictureBox2.Image = null;
         }
 
         public static void ApplyFilter(PictureBox pictureBox1, PictureBox pictureBox2, Func<Bitmap, Bitmap> filterFunction)

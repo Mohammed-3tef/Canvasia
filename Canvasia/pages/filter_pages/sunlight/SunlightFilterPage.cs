@@ -24,10 +24,9 @@ namespace Canvasia.pages.sunlight
             }
             else pictureBox1.Image = null;
         }
-
         private void loadPhotoBtn_Click(object sender, EventArgs e)
         {
-            PhotoManager.LoadPhoto();
+            PhotoManager.LoadPhoto(pictureBox2);
             pictureBox1.Image = Program.stack.LastOrDefault();
         }
 

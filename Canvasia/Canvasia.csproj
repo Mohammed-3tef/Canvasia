@@ -79,6 +79,12 @@
     <Compile Include="pages\about_page\AboutPage.Designer.cs">
       <DependentUpon>AboutPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\filter_pages\addFrame\AddFrameFilterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\addFrame\AddFrameFilterPage.Designer.cs">
+      <DependentUpon>AddFrameFilterPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\filter_pages\blackAndWhite\BlackAndWhiteFilterPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     <Compile Include="pages\filter_pages\lightenDarken\LightenDarkenFilterPage.Designer.cs">
       <DependentUpon>LightenDarkenFilterPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\filter_pages\merge\MergeFilterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\merge\MergeFilterPage.Designer.cs">
+      <DependentUpon>MergeFilterPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\filter_pages\purple\PurpleFilterPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
     <Compile Include="pages\filter_pages\rotate\RotateImagePage.Designer.cs">
       <DependentUpon>RotateImagePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\filter_pages\skew\SkewFilterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\filter_pages\skew\SkewFilterPage.Designer.cs">
+      <DependentUpon>SkewFilterPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\filter_pages\sunlight\SunlightFilterPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\about_page\AboutPage.resx">
       <DependentUpon>AboutPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\addFrame\AddFrameFilterPage.resx">
+      <DependentUpon>AddFrameFilterPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\blackAndWhite\BlackAndWhiteFilterPage.resx">
       <DependentUpon>BlackAndWhiteFilterPage.cs</DependentUpon>
@@ -195,6 +216,9 @@
     <EmbeddedResource Include="pages\filter_pages\lightenDarken\LightenDarkenFilterPage.resx">
       <DependentUpon>LightenDarkenFilterPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\merge\MergeFilterPage.resx">
+      <DependentUpon>MergeFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\purple\PurpleFilterPage.resx">
       <DependentUpon>PurpleFilterPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\rotate\RotateImagePage.resx">
       <DependentUpon>RotateImagePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\filter_pages\skew\SkewFilterPage.resx">
+      <DependentUpon>SkewFilterPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\sunlight\SunlightFilterPage.resx">
       <DependentUpon>SunlightFilterPage.cs</DependentUpon>

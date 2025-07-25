@@ -469,5 +469,99 @@ namespace Canvasia
 
             return cropped;
         }
+
+        // ------------------------------------------------------------------------------------------ RESIZE IMAGE
+        public static Bitmap ResizeImage(Bitmap original, int newWidth, int newHeight)
+        {
+            Bitmap resized = new Bitmap(newWidth, newHeight);
+
+            using (Graphics g = Graphics.FromImage(resized))
+            {
+                g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+
+                // Draw original into new size
+                g.DrawImage(original, 0, 0, newWidth, newHeight);
+            }
+
+            return resized;
+        }
+
+        // ------------------------------------------------------------------------------------------ SKEW IMAGE
+        public static Bitmap skewImage(Bitmap original)
+        {
+            Bitmap img = null;
+
+            return img;
+        }
+
+        // ------------------------------------------------------------------------------------------ ADD FRAME
+        public static Bitmap AddFrame(Bitmap original, int frameWidthOuter, Color frameColorOuter, int frameWidthInner, Color frameColorInner)
+        {
+            frameWidthInner /= 2;
+            // new image size = original + frame on all sides
+            int newWidth = original.Width + frameWidthOuter * 2;
+            int newHeight = original.Height + frameWidthOuter * 2;
+
+            // create a new bitmap
+            Bitmap framed = new Bitmap(newWidth, newHeight);
+
+            using (Graphics g = Graphics.FromImage(framed))
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Step 1: paint background with outer frame color
+                using (SolidBrush outerBrush = new SolidBrush(frameColorOuter))
+                {
+                    g.FillRectangle(outerBrush, 0, 0, newWidth, newHeight);
+                }
+
+                // Step 2: draw the original image inside, leaving the outer frame border
+                g.DrawImage(original, frameWidthOuter, frameWidthOuter, original.Width, original.Height);
+
+                if (frameWidthInner > 0)
+                {
+                    // Step 3: draw the inner border **inside the image area** with 10px margin
+                    int innerX = frameWidthOuter;
+                    int innerY = frameWidthOuter;
+                    int innerWidth = original.Width;   // reduce width by 10px on both sides
+                    int innerHeight = original.Height; // reduce height by 10px on both sides
+
+                    using (Pen innerPen = new Pen(frameColorInner, frameWidthInner))
+                    {
+                        // keep border drawn inward
+                        innerPen.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
+
+                        g.DrawRectangle(innerPen, innerX, innerY, innerWidth, innerHeight);
+                    }
+
+                    // Step 3: draw the inner border **inside the image area** with 10px margin
+                    innerX = frameWidthOuter + 5;
+                    innerY = frameWidthOuter + 5;
+                    innerWidth = original.Width - 10;   // reduce width by 10px on both sides
+                    innerHeight = original.Height - 10; // reduce height by 10px on both sides
+
+                    using (Pen innerPen = new Pen(frameColorInner, frameWidthInner))
+                    {
+                        // keep border drawn inward
+                        innerPen.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
+
+                        g.DrawRectangle(innerPen, innerX, innerY, innerWidth, innerHeight);
+                    }
+                }
+            }
+
+            return framed;
+        }
+
+        // ------------------------------------------------------------------------------------------ MERGE IMAGES
+        public static Bitmap mergeImages(Bitmap original)
+        {
+            Bitmap img = null;
+
+            return img;
+        }
     }
 }

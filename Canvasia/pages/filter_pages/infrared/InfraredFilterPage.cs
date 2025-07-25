@@ -28,10 +28,9 @@ namespace Canvasia.pages.infrared
             if (Program.index == 0) undoBtn.Enabled = false;
             redoBtn.Enabled = false;
         }
-
         private void loadPhotoBtn_Click(object sender, EventArgs e)
         {
-            PhotoManager.LoadPhoto();
+            PhotoManager.LoadPhoto(pictureBox2);
             pictureBox1.Image = Program.stack.LastOrDefault();
         }
 

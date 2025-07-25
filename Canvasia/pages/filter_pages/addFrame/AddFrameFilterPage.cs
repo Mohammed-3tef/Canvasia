@@ -1,6 +1,4 @@
-﻿using Canvasia.src;
-using Canvasia.src.display;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,13 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Canvasia.src;
+using Canvasia.src.display;
 
-namespace Canvasia.pages.filter_pages.crop
+namespace Canvasia.pages.filter_pages.addFrame
 {
-    public partial class CropImagePage : Form
+    public partial class AddFrameFilterPage : Form
     {
-        public CropImagePage()
+        private int frameWidthOuter = 0;
+        private Color frameColorOuter = Color.Black;
+        private int frameWidthInner = 0;
+        private Color frameColorInner = Color.White;
+
+        public AddFrameFilterPage()
         {
             InitializeComponent();
 
@@ -25,16 +29,17 @@ namespace Canvasia.pages.filter_pages.crop
             }
             else pictureBox1.Image = null;
 
-            undoBtn.Enabled = Program.index > 0;
+            if (Program.index == 0) undoBtn.Enabled = false;
             redoBtn.Enabled = false;
         }
+
         private void loadPhotoBtn_Click(object sender, EventArgs e)
         {
             PhotoManager.LoadPhoto(pictureBox2);
             pictureBox1.Image = Program.stack.LastOrDefault();
         }
 
-        private void applyFilterBtn_Click(object sender, EventArgs e)
+        private void applyFilter_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image == null)
             {
@@ -42,33 +47,16 @@ namespace Canvasia.pages.filter_pages.crop
                 return;
             }
 
-            if (addX.Value <= 0)
-            {
-                MessageDisplay.ShowWarning("Please enter a valid X to add.");
-                addX.Focus();
-                return;
-            }
-
-            if (addY.Value <= 0)
-            {
-                MessageDisplay.ShowWarning("Please enter a valid X to add.");
-                addY.Focus();
-                return;
-            }
-
-            if (addWidth.Value <= 0)
+            if (addWidthOuter.Value <= 0)
             {
                 MessageDisplay.ShowWarning("Please enter a valid width to add.");
-                addWidth.Focus();
+
+                addWidthOuter.Focus();
                 return;
             }
 
-            if (addHeight.Value <= 0)
-            {
-                MessageDisplay.ShowWarning("Please enter a valid height to add.");
-                addHeight.Focus();
-                return;
-            }
+            frameWidthOuter = (int)addWidthOuter.Value;
+            frameWidthInner = (int)addWidthInner.Value; 
 
             if (pictureBox2.Image != null)
             {
@@ -76,7 +64,7 @@ namespace Canvasia.pages.filter_pages.crop
             }
 
             PhotoManager.ApplyFilter(pictureBox1, pictureBox2, original =>
-                Filters.CropImage(original, (int)addX.Value, (int)addY.Value, (int)addWidth.Value, (int)addHeight.Value)
+                Filters.AddFrame(original, frameWidthOuter, frameColorOuter, frameWidthInner, frameColorInner)
             );
 
             // Update undo/redo buttons
@@ -93,16 +81,15 @@ namespace Canvasia.pages.filter_pages.crop
         {
             PhotoManager.ClearPhoto(pictureBox1);
             PhotoManager.ClearPhoto(pictureBox2);
-
-            addX.Value = 0;
-            addY.Value = 0;
-            addWidth.Value = 0;
-            addHeight.Value = 0;
-
             undoBtn.Enabled = false;
             redoBtn.Enabled = false;
-        }
 
+            addWidthOuter.Value = 0;
+            addWidthInner.Value = 0;
+
+            frameColorOuter = Color.Black;
+            frameColorInner = Color.White;
+        }
         private void redoBtn_Click(object sender, EventArgs e)
         {
             PhotoManager.RedoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
@@ -111,6 +98,30 @@ namespace Canvasia.pages.filter_pages.crop
         private void undoBtn_Click(object sender, EventArgs e)
         {
             PhotoManager.UndoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
+        }
+
+        private void chooseColorOuterBtn_Click(object sender, EventArgs e)
+        {
+            // colorDialog1 is the one you dropped from Toolbox
+            colorOuter.Color = frameColorOuter; // start with current color
+
+            if (colorOuter.ShowDialog() == DialogResult.OK)
+            {
+                frameColorOuter = colorOuter.Color;            // store chosen color
+                chooseColorOuterBtn.BackColor = frameColorOuter;      // optional feedback
+            }
+        }
+
+        private void chooseColorInnerBtn_Click(object sender, EventArgs e)
+        {
+            // colorDialog1 is the one you dropped from Toolbox
+            colorInner.Color = frameColorInner; // start with current color
+
+            if (colorInner.ShowDialog() == DialogResult.OK)
+            {
+                frameColorInner = colorInner.Color;            // store chosen color
+                chooseColorInnerBtn.BackColor = frameColorInner;      // optional feedback
+            }
         }
     }
 }

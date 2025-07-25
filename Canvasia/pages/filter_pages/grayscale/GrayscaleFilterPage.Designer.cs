@@ -42,12 +42,10 @@
             this.downloadBtn = new System.Windows.Forms.Button();
             this.redoBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // loadPhotoBtn
@@ -55,10 +53,9 @@
             this.loadPhotoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loadPhotoBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loadPhotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadPhotoBtn.Location = new System.Drawing.Point(9, 9);
-            this.loadPhotoBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loadPhotoBtn.Location = new System.Drawing.Point(7, 7);
             this.loadPhotoBtn.Name = "loadPhotoBtn";
-            this.loadPhotoBtn.Size = new System.Drawing.Size(183, 78);
+            this.loadPhotoBtn.Size = new System.Drawing.Size(137, 64);
             this.loadPhotoBtn.TabIndex = 13;
             this.loadPhotoBtn.Text = "Load Image";
             this.loadPhotoBtn.UseVisualStyleBackColor = true;
@@ -69,10 +66,9 @@
             this.applyFilter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.applyFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.applyFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applyFilter.Location = new System.Drawing.Point(200, 9);
-            this.applyFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.applyFilter.Location = new System.Drawing.Point(150, 7);
             this.applyFilter.Name = "applyFilter";
-            this.applyFilter.Size = new System.Drawing.Size(183, 78);
+            this.applyFilter.Size = new System.Drawing.Size(137, 64);
             this.applyFilter.TabIndex = 14;
             this.applyFilter.Text = "Apply Filter";
             this.applyFilter.UseVisualStyleBackColor = true;
@@ -82,10 +78,10 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(565, 429);
+            this.pictureBox1.Size = new System.Drawing.Size(423, 349);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -94,10 +90,10 @@
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(585, 10);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox2.Location = new System.Drawing.Point(439, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(565, 429);
+            this.pictureBox2.Size = new System.Drawing.Size(423, 349);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -114,23 +110,24 @@
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 84);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 68);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 498);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(870, 405);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(583, 444);
+            this.label3.Location = new System.Drawing.Point(437, 361);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(569, 49);
+            this.label3.Size = new System.Drawing.Size(427, 40);
             this.label3.TabIndex = 11;
             this.label3.Text = "After:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,9 +136,10 @@
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 444);
+            this.label2.Location = new System.Drawing.Point(6, 361);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(569, 49);
+            this.label2.Size = new System.Drawing.Size(427, 40);
             this.label2.TabIndex = 10;
             this.label2.Text = "Before:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -163,13 +161,13 @@
             this.tableLayoutPanel2.Controls.Add(this.undoBtn, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.downloadBtn, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.redoBtn, 3, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 650);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 528);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1160, 96);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(870, 78);
             this.tableLayoutPanel2.TabIndex = 28;
             // 
             // clearBtn
@@ -177,10 +175,9 @@
             this.clearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBtn.Location = new System.Drawing.Point(773, 9);
-            this.clearBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearBtn.Location = new System.Drawing.Point(579, 7);
             this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(183, 78);
+            this.clearBtn.Size = new System.Drawing.Size(137, 64);
             this.clearBtn.TabIndex = 17;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = true;
@@ -191,10 +188,9 @@
             this.undoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.undoBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.undoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.undoBtn.Location = new System.Drawing.Point(391, 9);
-            this.undoBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.undoBtn.Location = new System.Drawing.Point(293, 7);
             this.undoBtn.Name = "undoBtn";
-            this.undoBtn.Size = new System.Drawing.Size(183, 78);
+            this.undoBtn.Size = new System.Drawing.Size(137, 64);
             this.undoBtn.TabIndex = 15;
             this.undoBtn.Text = "Undo";
             this.undoBtn.UseVisualStyleBackColor = true;
@@ -205,10 +201,9 @@
             this.downloadBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.downloadBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.downloadBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.downloadBtn.Location = new System.Drawing.Point(964, 9);
-            this.downloadBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.downloadBtn.Location = new System.Drawing.Point(722, 7);
             this.downloadBtn.Name = "downloadBtn";
-            this.downloadBtn.Size = new System.Drawing.Size(187, 78);
+            this.downloadBtn.Size = new System.Drawing.Size(141, 64);
             this.downloadBtn.TabIndex = 18;
             this.downloadBtn.Text = "Download";
             this.downloadBtn.UseVisualStyleBackColor = true;
@@ -219,10 +214,9 @@
             this.redoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.redoBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.redoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.redoBtn.Location = new System.Drawing.Point(582, 9);
-            this.redoBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.redoBtn.Location = new System.Drawing.Point(436, 7);
             this.redoBtn.Name = "redoBtn";
-            this.redoBtn.Size = new System.Drawing.Size(183, 78);
+            this.redoBtn.Size = new System.Drawing.Size(137, 64);
             this.redoBtn.TabIndex = 16;
             this.redoBtn.Text = "Redo";
             this.redoBtn.UseVisualStyleBackColor = true;
@@ -233,39 +227,25 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 6);
+            this.label1.Location = new System.Drawing.Point(8, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1160, 75);
+            this.label1.Size = new System.Drawing.Size(870, 61);
             this.label1.TabIndex = 27;
             this.label1.Text = "Grayscale Filter";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trackBar1.Location = new System.Drawing.Point(308, 588);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(565, 56);
-            this.trackBar1.SmallChange = 5;
-            this.trackBar1.TabIndex = 36;
-            this.trackBar1.TickFrequency = 5;
-            // 
             // GrayscaleFilterPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
-            this.Controls.Add(this.trackBar1);
+            this.ClientSize = new System.Drawing.Size(888, 618);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1199, 798);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(903, 656);
             this.Name = "GrayscaleFilterPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Canvasia";
@@ -273,9 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -292,7 +270,6 @@
         private System.Windows.Forms.Button downloadBtn;
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Button undoBtn;
         private System.Windows.Forms.Button redoBtn;
     }

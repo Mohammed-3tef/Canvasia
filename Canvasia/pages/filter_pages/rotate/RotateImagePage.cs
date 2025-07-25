@@ -28,10 +28,9 @@ namespace Canvasia.pages.filter_pages.rotate
             undoBtn.Enabled = Program.index > 0;
             redoBtn.Enabled = false;
         }
-
-        private void loadBtn_Click(object sender, EventArgs e)
+        private void loadPhotoBtn_Click(object sender, EventArgs e)
         {
-            PhotoManager.LoadPhoto();
+            PhotoManager.LoadPhoto(pictureBox2);
             pictureBox1.Image = Program.stack.LastOrDefault();
         }
 

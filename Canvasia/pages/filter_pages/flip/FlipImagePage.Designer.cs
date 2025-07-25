@@ -63,7 +63,7 @@
             this.loadPhotoBtn.TabIndex = 13;
             this.loadPhotoBtn.Text = "Load Image";
             this.loadPhotoBtn.UseVisualStyleBackColor = true;
-            this.loadPhotoBtn.Click += new System.EventHandler(this.loadBtn_Click);
+            this.loadPhotoBtn.Click += new System.EventHandler(this.loadPhotoBtn_Click);
             // 
             // applyFilter
             // 
