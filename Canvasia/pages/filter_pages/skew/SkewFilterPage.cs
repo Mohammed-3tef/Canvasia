@@ -49,6 +49,12 @@ namespace Canvasia.pages.filter_pages.skew
                 return;
             }
 
+            if (addDegreeOfSkewness.Value == 90 || addDegreeOfSkewness.Value == 270)
+            {
+                MessageDisplay.ShowError("Please enter a valid slew angle (not 90°)");
+                return;
+            }
+
             if (pictureBox2.Image != null)
             {
                 pictureBox1.Image = pictureBox2.Image;

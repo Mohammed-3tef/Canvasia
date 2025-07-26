@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Canvasia.pages.filter_pages.merge
 {
@@ -18,13 +19,18 @@ namespace Canvasia.pages.filter_pages.merge
         {
             InitializeComponent();
 
-            //if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
-            //{
-            //    pictureBox2.Image = Program.stack[Program.index];
-            //}
-            //else pictureBox2.Image = null;
+            if (Program.stack.Count > 1 && Program.index >= 1 && Program.index < Program.stack.Count)
+            {
+                pictureBox1.Image = Program.stack[Program.index];
+                pictureBox2.Image = Program.stack[Program.index - 1];
+            }
+            else
+            {
+                pictureBox1.Image = null;
+                pictureBox2.Image = null;
+            }
 
-            undoBtn.Enabled = Program.index > 0;
+            if (Program.index == 0) undoBtn.Enabled = false;
             redoBtn.Enabled = false;
         }
 
@@ -39,7 +45,15 @@ namespace Canvasia.pages.filter_pages.merge
 
         private void applyFilterBtn_Click(object sender, EventArgs e)
         {
+            if (pictureBox1.Image == null || pictureBox2.Image == null)
+            {
+                MessageDisplay.ShowWarning("Please load an image before applying the filter.");
+                return;
+            }
 
+            PhotoManager.ApplyFilter(pictureBox1, pictureBox3, original =>
+                Filters.mergeImages(original, (Bitmap)pictureBox2.Image)
+            );
         }
 
         private void downloadBtn_Click(object sender, EventArgs e)
@@ -59,12 +73,12 @@ namespace Canvasia.pages.filter_pages.merge
 
         private void redoBtn_Click(object sender, EventArgs e)
         {
-
+            //PhotoManager.RedoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
         }
 
         private void undoBtn_Click(object sender, EventArgs e)
         {
-
+            //PhotoManager.UndoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
         }
     }
 }

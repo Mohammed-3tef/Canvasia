@@ -582,11 +582,44 @@ namespace Canvasia
         }
 
         // ------------------------------------------------------------------------------------------ MERGE IMAGES
-        public static Bitmap mergeImages(Bitmap original)
+        public static Bitmap mergeImages(Bitmap original, Bitmap secondImage)
         {
-            Bitmap img = null;
+            int newWidth = Math.Min(original.Width, secondImage.Width);
+            int newHeight = Math.Min(original.Height, secondImage.Height);
 
-            return img;
+            Bitmap merged = new Bitmap(newWidth, newHeight);
+
+            using (Graphics g = Graphics.FromImage(merged))
+            {
+                int x = (original.Width - newWidth) / 2;
+                int y = (original.Height - newHeight) / 2;
+
+                ColorMatrix matrix = new ColorMatrix();
+                matrix.Matrix33 = 0.5f;
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default, ColorAdjustType.Bitmap);
+
+                g.DrawImage(
+                    original,
+                    new Rectangle(0, 0, original.Width, original.Height),
+                    x, y, original.Width, original.Height,
+                    GraphicsUnit.Pixel,
+                    attributes
+                );
+
+                x = (secondImage.Width - newWidth) / 2;
+                y = (secondImage.Height - newHeight) / 2;
+
+                g.DrawImage(
+                    secondImage,
+                    new Rectangle(0, 0, secondImage.Width, secondImage.Height), 
+                    x,y, secondImage.Width, secondImage.Height,
+                    GraphicsUnit.Pixel,
+                    attributes
+                );
+            }
+
+            return merged;
         }
     }
 }
