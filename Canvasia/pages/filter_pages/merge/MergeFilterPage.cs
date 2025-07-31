@@ -18,6 +18,7 @@ namespace Canvasia.pages.filter_pages.merge
         public MergeFilterPage()
         {
             InitializeComponent();
+            Settings.ApplyTheme(this);
 
             if (Program.stack.Count > 1 && Program.index >= 1 && Program.index < Program.stack.Count)
             {
@@ -29,18 +30,15 @@ namespace Canvasia.pages.filter_pages.merge
                 pictureBox1.Image = null;
                 pictureBox2.Image = null;
             }
-
-            if (Program.index == 0) undoBtn.Enabled = false;
-            redoBtn.Enabled = false;
         }
 
         private void loadPhotoBtn_Click(object sender, EventArgs e)
         {
             PhotoManager.LoadPhoto(pictureBox3);
-            pictureBox2.Image = Program.stack.LastOrDefault();
+            pictureBox1.Image = Program.stack.LastOrDefault();
 
             PhotoManager.LoadPhoto(pictureBox3);
-            pictureBox1.Image = Program.stack.LastOrDefault();
+            pictureBox2.Image = Program.stack.LastOrDefault();
         }
 
         private void applyFilterBtn_Click(object sender, EventArgs e)
@@ -66,19 +64,6 @@ namespace Canvasia.pages.filter_pages.merge
             PhotoManager.ClearPhoto(pictureBox2);
             PhotoManager.ClearPhoto(pictureBox1);
             PhotoManager.ClearPhoto(pictureBox3);
-
-            undoBtn.Enabled = false;
-            redoBtn.Enabled = false;
-        }
-
-        private void redoBtn_Click(object sender, EventArgs e)
-        {
-            //PhotoManager.RedoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
-        }
-
-        private void undoBtn_Click(object sender, EventArgs e)
-        {
-            //PhotoManager.UndoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
         }
     }
 }

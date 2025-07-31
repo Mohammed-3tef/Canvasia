@@ -14,10 +14,11 @@ namespace Canvasia.pages.purple
 {
     public partial class PurpleFilterPage : Form
     {
-        Filters filters = new Filters();
+
         public PurpleFilterPage()
         {
             InitializeComponent();
+            Settings.ApplyTheme(this);
 
             if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {

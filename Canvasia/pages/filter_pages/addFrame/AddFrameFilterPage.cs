@@ -29,6 +29,9 @@ namespace Canvasia.pages.filter_pages.addFrame
             }
             else pictureBox1.Image = null;
 
+            chooseColorInnerBtn.BackColor = frameColorInner;
+            chooseColorOuterBtn.BackColor = frameColorOuter;
+
             if (Program.index == 0) undoBtn.Enabled = false;
             redoBtn.Enabled = false;
         }
@@ -50,7 +53,6 @@ namespace Canvasia.pages.filter_pages.addFrame
             if (addWidthOuter.Value <= 0)
             {
                 MessageDisplay.ShowWarning("Please enter a valid width to add.");
-
                 addWidthOuter.Focus();
                 return;
             }
@@ -89,7 +91,10 @@ namespace Canvasia.pages.filter_pages.addFrame
 
             frameColorOuter = Color.Black;
             frameColorInner = Color.White;
+            chooseColorOuterBtn.BackColor = frameColorOuter;
+            chooseColorInnerBtn.BackColor = frameColorInner;
         }
+
         private void redoBtn_Click(object sender, EventArgs e)
         {
             PhotoManager.RedoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);

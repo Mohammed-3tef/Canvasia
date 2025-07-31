@@ -1,18 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\FCAI-PC\\_gui_\\Canvasia\\",
+  "WorkspaceRootPath": "D:\\Projects\\Canvasia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\pages\\filter_pages\\merge\\mergefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\merge\\mergefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Canvasia||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\pages\\filter_pages\\purple\\purplefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\pages\\filter_pages\\purple\\purplefilterpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|f:\\fcai-pc\\_gui_\\canvasia\\canvasia\\src\\photomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|solutionrelative:canvasia\\src\\photomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3B381A9A-00C9-40D9-83B8-B98183ED372E}|Canvasia\\Canvasia.csproj|d:\\projects\\canvasia\\canvasia\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|cc4014f5-b18d-439c-9352-f99d984cca85"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +16,18 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PurpleFilterPage.cs",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs",
-              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs",
-              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\purple\\PurpleFilterPage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T13:27:53.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MergeFilterPage.cs",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
-              "RelativeDocumentMoniker": "Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
-              "RelativeToolTip": "Canvasia\\pages\\filter_pages\\merge\\MergeFilterPage.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwFAAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T12:42:45.669Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PhotoManager.cs",
-              "DocumentMoniker": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\src\\PhotoManager.cs",
-              "RelativeDocumentMoniker": "Canvasia\\src\\PhotoManager.cs",
-              "ToolTip": "F:\\FCAI-PC\\_gui_\\Canvasia\\Canvasia\\src\\PhotoManager.cs",
-              "RelativeToolTip": "Canvasia\\src\\PhotoManager.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAAwC8AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T12:45:56.959Z",
+              "Title": "Canvasia",
+              "DocumentMoniker": "D:\\Projects\\Canvasia\\Canvasia\\Canvasia.csproj",
+              "RelativeDocumentMoniker": "Canvasia\\Canvasia.csproj",
+              "ToolTip": "D:\\Projects\\Canvasia\\Canvasia\\Canvasia.csproj",
+              "RelativeToolTip": "Canvasia\\Canvasia.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-31T14:44:20.982Z",
               "EditorCaption": ""
             }
           ]

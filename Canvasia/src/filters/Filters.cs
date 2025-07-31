@@ -191,9 +191,9 @@ namespace Canvasia
         }
 
         // ------------------------------------------------------------------------------------------ LIGHTEN & DARKEN
-        public static Bitmap ApplyDarkenFilter(Bitmap image)
+        public static Bitmap ApplyDarkenFilter(Bitmap image, int trackBarDarkness)
         {
-            double darken = 0.5;
+            double darken = (double)trackBarDarkness / 50.0;
             return ProcessBitmap(image, (pixels, width, height, stride) =>
             {
                 for (int y = 0; y < height; y++)
@@ -210,9 +210,9 @@ namespace Canvasia
             });
         }
 
-        public static Bitmap ApplyLightenFilter(Bitmap image)
+        public static Bitmap ApplyLightenFilter(Bitmap image, int trackBarBrightness)
         {
-            double lighten = 1.5;
+            double lighten = (double)trackBarBrightness / 50.0;
             return ProcessBitmap(image, (pixels, width, height, stride) =>
             {
                 for (int y = 0; y < height; y++)

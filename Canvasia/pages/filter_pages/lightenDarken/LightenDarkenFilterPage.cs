@@ -17,6 +17,7 @@ namespace Canvasia.pages.lightenDarken
         public LightenDarkenFilterPage()
         {
             InitializeComponent();
+            Settings.ApplyTheme(this);
 
             if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {
@@ -41,12 +42,25 @@ namespace Canvasia.pages.lightenDarken
                 return;
             }
 
+            if (trackBar1.Value == 50)
+            {
+                MessageDisplay.ShowWarning("Please select a level greater than 0.");
+                return;
+            }
+
             if (pictureBox2.Image != null)
             {
                 pictureBox1.Image = pictureBox2.Image;
             }
 
-            //PhotoManager.ApplyFilter(pictureBox1, pictureBox2, Filters.ApplySunlightFilter);
+            if (trackBar1.Value > 50)
+                PhotoManager.ApplyFilter(pictureBox1, pictureBox2, original =>
+                    Filters.ApplyLightenFilter(original, (int)trackBar1.Value)
+                );
+            else 
+                PhotoManager.ApplyFilter(pictureBox1, pictureBox2, original => 
+                    Filters.ApplyDarkenFilter(original, (int)trackBar1.Value)
+                );
 
             // Update undo/redo buttons
             redoBtn.Enabled = false;
@@ -59,6 +73,9 @@ namespace Canvasia.pages.lightenDarken
             PhotoManager.ClearPhoto(pictureBox2);
             undoBtn.Enabled = false;
             redoBtn.Enabled = false;
+
+            trackBar1.Value = 50;
+            levelLabel.Text = "0%";
         }
 
         private void downloadBtn_Click(object sender, EventArgs e)
@@ -74,6 +91,11 @@ namespace Canvasia.pages.lightenDarken
         private void undoBtn_Click(object sender, EventArgs e)
         {
             PhotoManager.UndoPhoto(pictureBox1, pictureBox2, undoBtn, redoBtn);
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            this.levelLabel.Text = $"{(trackBar1.Value - 50).ToString()}%";
         }
     }
 }

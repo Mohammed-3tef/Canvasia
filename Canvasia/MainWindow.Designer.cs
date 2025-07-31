@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mergeBtn = new System.Windows.Forms.Button();
             this.resizeBtn = new System.Windows.Forms.Button();
             this.cropBtn = new System.Windows.Forms.Button();
             this.skewBtn = new System.Windows.Forms.Button();
@@ -48,8 +50,8 @@
             this.infraredBtn = new System.Windows.Forms.Button();
             this.invertBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.mergeBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -57,7 +59,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Location = new System.Drawing.Point(296, 12);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
@@ -68,7 +70,8 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(29)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.mergeBtn);
             this.panel1.Controls.Add(this.resizeBtn);
             this.panel1.Controls.Add(this.cropBtn);
@@ -93,6 +96,38 @@
             this.panel1.Size = new System.Drawing.Size(281, 929);
             this.panel1.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(13, 21);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // mergeBtn
+            // 
+            this.mergeBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.mergeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mergeBtn.FlatAppearance.BorderSize = 0;
+            this.mergeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mergeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.mergeBtn.ForeColor = System.Drawing.Color.White;
+            this.mergeBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.mergeBtn.Location = new System.Drawing.Point(0, 630);
+            this.mergeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mergeBtn.Name = "mergeBtn";
+            this.mergeBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.mergeBtn.Size = new System.Drawing.Size(281, 45);
+            this.mergeBtn.TabIndex = 12;
+            this.mergeBtn.Text = "Merge Images";
+            this.mergeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mergeBtn.UseVisualStyleBackColor = true;
+            this.mergeBtn.Click += new System.EventHandler(this.mergeBtn_Click);
+            // 
             // resizeBtn
             // 
             this.resizeBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -100,6 +135,7 @@
             this.resizeBtn.FlatAppearance.BorderSize = 0;
             this.resizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resizeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.resizeBtn.ForeColor = System.Drawing.Color.White;
             this.resizeBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.resizeBtn.Location = new System.Drawing.Point(0, 728);
             this.resizeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -119,6 +155,7 @@
             this.cropBtn.FlatAppearance.BorderSize = 0;
             this.cropBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cropBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cropBtn.ForeColor = System.Drawing.Color.White;
             this.cropBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cropBtn.Location = new System.Drawing.Point(0, 238);
             this.cropBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -138,6 +175,7 @@
             this.skewBtn.FlatAppearance.BorderSize = 0;
             this.skewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.skewBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.skewBtn.ForeColor = System.Drawing.Color.White;
             this.skewBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.skewBtn.Location = new System.Drawing.Point(0, 826);
             this.skewBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -157,6 +195,7 @@
             this.addingFrameBtn.FlatAppearance.BorderSize = 0;
             this.addingFrameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addingFrameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.addingFrameBtn.ForeColor = System.Drawing.Color.White;
             this.addingFrameBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.addingFrameBtn.Location = new System.Drawing.Point(0, 91);
             this.addingFrameBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -176,6 +215,7 @@
             this.rotateBtn.FlatAppearance.BorderSize = 0;
             this.rotateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rotateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.rotateBtn.ForeColor = System.Drawing.Color.White;
             this.rotateBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.rotateBtn.Location = new System.Drawing.Point(0, 777);
             this.rotateBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -200,10 +240,11 @@
             this.aboutBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutBtn.Location = new System.Drawing.Point(3, 897);
+            this.aboutBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.aboutBtn.Location = new System.Drawing.Point(3, 892);
             this.aboutBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(30, 30);
+            this.aboutBtn.Size = new System.Drawing.Size(35, 35);
             this.aboutBtn.TabIndex = 17;
             this.aboutBtn.UseVisualStyleBackColor = true;
             this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
@@ -215,6 +256,7 @@
             this.flipBtn.FlatAppearance.BorderSize = 0;
             this.flipBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flipBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.flipBtn.ForeColor = System.Drawing.Color.White;
             this.flipBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.flipBtn.Location = new System.Drawing.Point(0, 336);
             this.flipBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -234,6 +276,7 @@
             this.blurBtn.FlatAppearance.BorderSize = 0;
             this.blurBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.blurBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.blurBtn.ForeColor = System.Drawing.Color.White;
             this.blurBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.blurBtn.Location = new System.Drawing.Point(0, 189);
             this.blurBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -253,6 +296,7 @@
             this.lightenDarkenBtn.FlatAppearance.BorderSize = 0;
             this.lightenDarkenBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lightenDarkenBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lightenDarkenBtn.ForeColor = System.Drawing.Color.White;
             this.lightenDarkenBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lightenDarkenBtn.Location = new System.Drawing.Point(0, 532);
             this.lightenDarkenBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -272,6 +316,7 @@
             this.grayscaleBtn.FlatAppearance.BorderSize = 0;
             this.grayscaleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grayscaleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.grayscaleBtn.ForeColor = System.Drawing.Color.White;
             this.grayscaleBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.grayscaleBtn.Location = new System.Drawing.Point(0, 385);
             this.grayscaleBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -291,6 +336,7 @@
             this.blackAndWhiteBtn.FlatAppearance.BorderSize = 0;
             this.blackAndWhiteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.blackAndWhiteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.blackAndWhiteBtn.ForeColor = System.Drawing.Color.White;
             this.blackAndWhiteBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.blackAndWhiteBtn.Location = new System.Drawing.Point(0, 140);
             this.blackAndWhiteBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -310,6 +356,7 @@
             this.detectEdgesBtn.FlatAppearance.BorderSize = 0;
             this.detectEdgesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.detectEdgesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.detectEdgesBtn.ForeColor = System.Drawing.Color.White;
             this.detectEdgesBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.detectEdgesBtn.Location = new System.Drawing.Point(0, 287);
             this.detectEdgesBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -329,6 +376,7 @@
             this.sunlightBtn.FlatAppearance.BorderSize = 0;
             this.sunlightBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sunlightBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.sunlightBtn.ForeColor = System.Drawing.Color.White;
             this.sunlightBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.sunlightBtn.Location = new System.Drawing.Point(0, 679);
             this.sunlightBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -348,6 +396,7 @@
             this.purpleBtn.FlatAppearance.BorderSize = 0;
             this.purpleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.purpleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.purpleBtn.ForeColor = System.Drawing.Color.White;
             this.purpleBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.purpleBtn.Location = new System.Drawing.Point(0, 581);
             this.purpleBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -367,6 +416,7 @@
             this.infraredBtn.FlatAppearance.BorderSize = 0;
             this.infraredBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.infraredBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.infraredBtn.ForeColor = System.Drawing.Color.White;
             this.infraredBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.infraredBtn.Location = new System.Drawing.Point(0, 434);
             this.infraredBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -386,6 +436,7 @@
             this.invertBtn.FlatAppearance.BorderSize = 0;
             this.invertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.invertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.invertBtn.ForeColor = System.Drawing.Color.White;
             this.invertBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.invertBtn.Location = new System.Drawing.Point(0, 483);
             this.invertBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -403,48 +454,33 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(0, 4);
+            this.label1.Location = new System.Drawing.Point(54, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(281, 71);
+            this.label1.Size = new System.Drawing.Size(227, 61);
             this.label1.TabIndex = 0;
             this.label1.Text = "Canvasia";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mergeBtn
-            // 
-            this.mergeBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.mergeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mergeBtn.FlatAppearance.BorderSize = 0;
-            this.mergeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mergeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.mergeBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.mergeBtn.Location = new System.Drawing.Point(0, 630);
-            this.mergeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mergeBtn.Name = "mergeBtn";
-            this.mergeBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.mergeBtn.Size = new System.Drawing.Size(281, 45);
-            this.mergeBtn.TabIndex = 12;
-            this.mergeBtn.Text = "Merge Images";
-            this.mergeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mergeBtn.UseVisualStyleBackColor = true;
-            this.mergeBtn.Click += new System.EventHandler(this.mergeBtn_Click);
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1632, 953);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1650, 900);
+            this.MinimumSize = new System.Drawing.Size(1650, 1000);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Canvasia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -471,6 +507,7 @@
         private System.Windows.Forms.Button cropBtn;
         private System.Windows.Forms.Button resizeBtn;
         private System.Windows.Forms.Button mergeBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

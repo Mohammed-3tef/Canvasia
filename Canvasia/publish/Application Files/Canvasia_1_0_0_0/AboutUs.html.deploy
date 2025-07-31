@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About - Baby Photoshop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: url('background.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            margin: 30px;
+        }
+
+        .container {
+            min-width: 50%;
+            max-width: 800px;
+            margin: auto;
+            padding: 0.5rem 2rem;
+            
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(100px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease-in-out;
+    
+            &:hover{
+                background: rgba(0, 0, 0, 0.15);
+                backdrop-filter: blur(150px);
+                -webkit-backdrop-filter: blur(25px);
+                transform: translateY(-5px);
+                border: 1px solid white;
+            }
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            text-align: center;
+            color: #c9c8c8;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        .filters{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #87CEFA;
+            text-decoration: none;
+            
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+
+        .section {
+            margin-top: 25px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            margin-bottom: 1.5rem;
+            font-size: 14px;
+            color: #c9c8c8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Canvasia</h1>
+        <div class="subtitle">Version 1.0.0.0 - Developed by Esraa Emary & Mohammed Atef</div>
+
+        <p><strong>Canvasia</strong> is a fun and easy photo editing application designed especially for baby photos.</p>
+        <p>This application is a C# .NET Windows Forms application that allows users to load photos, apply various image filters, and save the edited photos easily.</p>
+
+        <div class="section">
+            <h2>Filters:</h2>
+
+            <div class="filters">
+                <div>
+                    <ul>
+                        <li>Grayscale Filter.</li>
+                        <li>Black and white filter.</li>
+                        <li>Invert filter.</li>
+                        <li>Merge two image filter.</li>
+                        <li>Flip image filter.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul>
+                        <li>Rotating Image filter.</li>
+                        <li>Darken_lighten image filter.</li>
+                        <li>Crop image filter.</li>
+                        <li>Adding a frame filter.</li>
+                        <li>Detect Edeges filter.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul>
+                        <li>Resize image filter.</li>
+                        <li>Blur Images filter.</li>
+                        <li>Natural Sunlight filter.</li>
+                        <li>Look Purple filter.</li>
+                        <li>Infrared filter.</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="section">
+            <h2>Contact:</h2>
+            <ul>
+                <li>
+                    <strong>Esraa Emary</strong>
+                    <ul>
+                        <li><strong>Email: </strong><a href="mailto:esraaemary33@gmail.com" target="_blank">esraaemary33@gmail.com</a></li>
+                        <li><strong>Website: </strong><a href="https://esraa-emary-portfolio.vercel.app" target="_blank">esraa-emary-portfolio.vercel.app</a></li>
+                        <li><strong>GitHub: </strong><a href="https://github.com/esraa-emary" target="_blank">github.com/esraa-emary</a></li>
+                        <li><strong>LinkedIn: </strong><a href="https://www.linkedin.com/in/esraa-emary-b372b8303/" target="_blank">in/esraa-emary-b372b8303</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Mohammed Atef</strong>
+                    <ul>
+                        <li><strong>Email: </strong><a href="mailto:mohamed45452020@gmail.com" target="_blank">mohamed45452020@gmail.com</a></li>
+                        <li><strong>Website: </strong><a href="https://mohammedatefportfolio.vercel.app/" target="_blank">mohammedatefportfolio.vercel.app</a></li>
+                        <li><strong>GitHub: </strong><a href="https://github.com/Mohammed-3tef" target="_blank">github.com/Mohammed-3tef</a></li>
+                        <li><strong>LinkedIn: </strong><a href="https://www.linkedin.com/in/mohammed-atef-abd-elkader/" target="_blank">in/mohammed-atef-abd-elkader</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">Thank you for using Canvasia! 👶📸</div>
+    </div>
+</body>
+</html>

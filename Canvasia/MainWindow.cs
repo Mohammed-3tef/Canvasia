@@ -74,10 +74,10 @@ namespace Canvasia
             foreach (Control control in this.panel1.Controls)
             {
                 if (control is Button btn)
-                    btn.BackColor = SystemColors.ControlLight; // Reset all
+                    btn.BackColor = Color.FromArgb(0, 29, 61); // Reset all
             }
 
-            activeButton.BackColor = SystemColors.Control; // Set active
+            activeButton.BackColor = Color.FromArgb(51, 65, 92); // Set active
         }
 
         private void infraredBtn_Click(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace Canvasia
             foreach (Control control in this.panel1.Controls)
             {
                 if (control is Button btn)
-                    btn.BackColor = SystemColors.ControlLight; // Reset all
+                    btn.BackColor = Color.FromArgb(0, 29, 61); // Reset all
             }
 
             OpenForm(new AboutPage());

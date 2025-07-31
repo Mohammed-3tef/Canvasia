@@ -17,6 +17,7 @@ namespace Canvasia.pages.sunlight
         public SunlightFilterPage()
         {
             InitializeComponent();
+            Settings.ApplyTheme(this);
 
             if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {
