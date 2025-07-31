@@ -1,4 +1,8 @@
 # Canvasia 📷✨
+
+![Canvasia Preview](./doc/screen.png)
+
+## Overview:
 This application is a C# .NET Windows Forms application that allows users to load photos, apply various image filters, and save the edited photos easily.
 
 ## Image Filters 🎨
@@ -85,7 +89,7 @@ This application is a C# .NET Windows Forms application that allows users to loa
 Contributions are welcome! Feel free to fork the repo, create a new branch, and submit a pull request.
 
 ## 📬 Contact
-- Mohammed Atef Abd El-Kader: [GitHub](https://github.com/Mohammed-3tef) - [LinkedIn](https://www.linkedin.com/in/mohammed-atef-b0a408299/)
+- Mohammed Atef Abd El-Kader: [GitHub](https://github.com/Mohammed-3tef) - [LinkedIn](https://www.linkedin.com/in/mohammed-atef-abd-elkader/)
 - Esraa Emary Abd El-Salam: [GitHub](https://github.com/esraa-emary) - [LinkedIn](https://www.linkedin.com/in/esraa-emary-b372b8303/)
 
 ## 📜 License
