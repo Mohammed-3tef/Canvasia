@@ -201,6 +201,12 @@
     <Compile Include="pages\filter_pages\sunlight\SunlightFilterPage.Designer.cs">
       <DependentUpon>SunlightFilterPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\popup_modals\LoadingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\popup_modals\LoadingPage.Designer.cs">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\alerts\MessageDisplay.cs" />
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\filter_pages\sunlight\SunlightFilterPage.resx">
       <DependentUpon>SunlightFilterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\popup_modals\LoadingPage.resx">
+      <DependentUpon>LoadingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

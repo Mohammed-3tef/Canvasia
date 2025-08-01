@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Canvasia.pages;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace Canvasia
 {
@@ -25,6 +26,10 @@ namespace Canvasia
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            LoadingPage loadingPage = new LoadingPage();
+            loadingPage.ShowDialog();
+
             Application.Run(new MainWindow());
         }
     }
