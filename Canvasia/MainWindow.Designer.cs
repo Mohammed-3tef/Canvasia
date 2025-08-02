@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.darkModeBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mergeBtn = new System.Windows.Forms.Button();
             this.resizeBtn = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(29)))), ((int)(((byte)(61)))));
+            this.panel1.Controls.Add(this.darkModeBtn);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.mergeBtn);
             this.panel1.Controls.Add(this.resizeBtn);
@@ -95,6 +97,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(281, 929);
             this.panel1.TabIndex = 2;
+            // 
+            // darkModeBtn
+            // 
+            this.darkModeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.darkModeBtn.BackgroundImage = global::Canvasia.Properties.Resources.light;
+            this.darkModeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.darkModeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.darkModeBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.darkModeBtn.FlatAppearance.BorderSize = 0;
+            this.darkModeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.darkModeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.darkModeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.darkModeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.darkModeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.darkModeBtn.Location = new System.Drawing.Point(243, 892);
+            this.darkModeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.darkModeBtn.Name = "darkModeBtn";
+            this.darkModeBtn.Size = new System.Drawing.Size(35, 35);
+            this.darkModeBtn.TabIndex = 18;
+            this.darkModeBtn.UseVisualStyleBackColor = true;
+            this.darkModeBtn.Click += new System.EventHandler(this.darkModeBtn_Click);
             // 
             // pictureBox1
             // 
@@ -508,6 +531,7 @@
         private System.Windows.Forms.Button resizeBtn;
         private System.Windows.Forms.Button mergeBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button darkModeBtn;
     }
 }
 

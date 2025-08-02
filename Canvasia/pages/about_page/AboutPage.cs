@@ -21,7 +21,9 @@ namespace Canvasia.pages.about_page
         public AboutPage()
         {
             InitializeComponent();
-            Settings.ApplyTheme(this);
+
+            if (AppSettings.isDarkModeEnabled) AppSettings.ApplyDarkModeTheme(this);
+            else AppSettings.ApplyLightModeTheme(this);
         }
 
         private async Task LoadAboutPage()

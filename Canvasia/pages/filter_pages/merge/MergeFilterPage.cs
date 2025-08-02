@@ -18,7 +18,9 @@ namespace Canvasia.pages.filter_pages.merge
         public MergeFilterPage()
         {
             InitializeComponent();
-            Settings.ApplyTheme(this);
+
+            if (AppSettings.isDarkModeEnabled) AppSettings.ApplyDarkModeTheme(this);
+            else AppSettings.ApplyLightModeTheme(this);
 
             if (Program.stack.Count > 1 && Program.index >= 1 && Program.index < Program.stack.Count)
             {

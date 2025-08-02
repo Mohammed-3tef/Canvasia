@@ -17,7 +17,9 @@ namespace Canvasia.pages.filter_pages.blur
         public BlurFilterPage()
         {
             InitializeComponent();
-            Settings.ApplyTheme(this);
+
+            if (AppSettings.isDarkModeEnabled) AppSettings.ApplyDarkModeTheme(this);
+            else AppSettings.ApplyLightModeTheme(this);
 
             if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {

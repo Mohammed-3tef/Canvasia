@@ -15,6 +15,8 @@ using Canvasia.pages.invert;
 using Canvasia.pages.lightenDarken;
 using Canvasia.pages.purple;
 using Canvasia.pages.sunlight;
+using Canvasia.src;
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,10 +76,14 @@ namespace Canvasia
             foreach (Control control in this.panel1.Controls)
             {
                 if (control is Button btn)
-                    btn.BackColor = Color.FromArgb(0, 29, 61); // Reset all
+                {
+                    if (AppSettings.isDarkModeEnabled) btn.BackColor = Color.FromArgb(0, 29, 61);
+                    else btn.BackColor = SystemColors.ControlLight;
+                }
             }
 
-            activeButton.BackColor = Color.FromArgb(51, 65, 92); // Set active
+            if (AppSettings.isDarkModeEnabled) activeButton.BackColor = Color.FromArgb(51, 65, 92); // Set active
+            else activeButton.BackColor = SystemColors.Control;
         }
 
         private void infraredBtn_Click(object sender, EventArgs e)
@@ -121,7 +127,10 @@ namespace Canvasia
             foreach (Control control in this.panel1.Controls)
             {
                 if (control is Button btn)
-                    btn.BackColor = Color.FromArgb(0, 29, 61); // Reset all
+                {
+                    if (AppSettings.isDarkModeEnabled) btn.BackColor = Color.FromArgb(0, 29, 61);
+                    else btn.BackColor = SystemColors.ControlLight;
+                }
             }
 
             OpenForm(new AboutPage());
@@ -185,6 +194,32 @@ namespace Canvasia
         {
             HighlightActiveButton((Button)sender);
             OpenForm(new MergeFilterPage());
+        }
+
+        private void darkModeBtn_Click(object sender, EventArgs e)
+        {
+            AppSettings.isDarkModeEnabled = !AppSettings.isDarkModeEnabled;
+
+            if (AppSettings.isDarkModeEnabled)
+            {
+                AppSettings.DarkMainWindow(this, this.panel1);
+                if (this.panel2.Controls.Count > 0)
+                    AppSettings.ApplyDarkModeTheme(this.panel2.Controls[0]);
+                panel2.BackColor = Color.Transparent;
+
+                darkModeBtn.BackgroundImage = Properties.Resources.light;
+                aboutBtn.BackgroundImage = Properties.Resources.light_about;
+            }
+            else
+            {
+                AppSettings.LightMainWindow(this, this.panel1);
+                if (this.panel2.Controls.Count > 0)
+                    AppSettings.ApplyLightModeTheme(this.panel2.Controls[0]);
+                panel2.BackColor = Color.Transparent;
+
+                darkModeBtn.BackgroundImage = Properties.Resources.dark;
+                aboutBtn.BackgroundImage = Properties.Resources.dark_about;
+            }
         }
     }
 }

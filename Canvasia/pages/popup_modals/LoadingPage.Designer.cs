@@ -64,7 +64,7 @@
             // 
             // progressBar
             // 
-            this.progressBar.BackColor = System.Drawing.SystemColors.Control;
+            this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(29)))), ((int)(((byte)(61)))));
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(206)))), ((int)(((byte)(234)))));
             this.progressBar.Location = new System.Drawing.Point(0, 377);

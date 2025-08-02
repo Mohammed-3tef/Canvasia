@@ -28,7 +28,7 @@
     <TargetCulture>en</TargetCulture>
     <ProductName>Canvasia</ProductName>
     <SuiteName>Canvasia</SuiteName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -212,7 +212,7 @@
     <Compile Include="src\alerts\MessageDisplay.cs" />
     <Compile Include="src\filters\Filters.cs" />
     <Compile Include="src\PhotoManager.cs" />
-    <Compile Include="src\Settings.cs" />
+    <Compile Include="src\AppSettings.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,6 +278,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Canvasia_TemporaryKey.pfx" />
     <None Include="packages.config" />

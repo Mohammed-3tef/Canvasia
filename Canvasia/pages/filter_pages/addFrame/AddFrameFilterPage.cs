@@ -23,6 +23,9 @@ namespace Canvasia.pages.filter_pages.addFrame
         {
             InitializeComponent();
 
+            if (AppSettings.isDarkModeEnabled) AppSettings.ApplyDarkModeTheme(this);
+            else AppSettings.ApplyLightModeTheme(this);
+
             if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {
                 pictureBox1.Image = Program.stack[Program.index];

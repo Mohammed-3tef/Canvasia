@@ -17,7 +17,9 @@ namespace Canvasia.pages.filter_pages.blackAndWhite
         public BlackAndWhiteFilterPage()
         {
             InitializeComponent();
-            Settings.ApplyTheme(this);
+
+            if (AppSettings.isDarkModeEnabled) AppSettings.ApplyDarkModeTheme(this);
+            else AppSettings.ApplyLightModeTheme(this);
 
             if (Program.stack.Count > 0 && Program.index >= 0 && Program.index < Program.stack.Count)
             {
