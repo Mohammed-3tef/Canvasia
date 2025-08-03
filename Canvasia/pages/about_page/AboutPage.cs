@@ -20,10 +20,11 @@ namespace Canvasia.pages.about_page
     {
         public AboutPage()
         {
-            InitializeComponent();
-
             if (AppSettings.isDarkModeEnabled) AppSettings.ApplyDarkModeTheme(this);
             else AppSettings.ApplyLightModeTheme(this);
+            AppSettings.inAboutPage = true;
+
+            InitializeComponent();
         }
 
         private async Task LoadAboutPage()
@@ -35,14 +36,22 @@ namespace Canvasia.pages.about_page
             if (File.Exists(htmlPath))
             {
                 this.webView.CoreWebView2.Navigate($"file:///{htmlPath.Replace("\\", "/")}");
-                this.panel.BackColor = Color.White;
+
+                if (AppSettings.isDarkModeEnabled) this.panel.BackColor = Color.White;
+                else this.panel.BackColor = Color.Black;
+
+                this.webView.CoreWebView2.NavigationCompleted += async (s, e) =>
+                    {
+                        string jsCode = $"darkenMode({AppSettings.isDarkModeEnabled.ToString().ToLower()});";
+                        await this.webView.CoreWebView2.ExecuteScriptAsync(jsCode);
+                    };
             }
             else MessageDisplay.ShowError("AboutUs.html not found. Please ensure the file exists in the application directory.");
         }
 
-        private void AboutPage_Load(object sender, EventArgs e)
+        private async void AboutPage_Load(object sender, EventArgs e)
         {
-            LoadAboutPage();
+            await LoadAboutPage();
         }
     }
 }

@@ -12,7 +12,8 @@ namespace Canvasia.src
 {
     public static class AppSettings
     {
-        public static bool isDarkModeEnabled = true;
+        public static bool isDarkModeEnabled = true; 
+        public static bool inAboutPage = false;
 
         public static void DarkMainWindow(MainWindow mainWindow, Panel panel)
         {

@@ -39,7 +39,6 @@
         }
 
         h1 {
-            color: white;
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 5px;
@@ -91,6 +90,52 @@
     </style>
 </head>
 <body>
+    <script>
+        function darkenMode(darken) {
+            const container = document.querySelector('.container');
+            const body = document.body;
+            const subtitle = document.querySelector('.subtitle');
+            const footer = document.querySelector('.footer');
+            if (!container) return;
+
+            if (darken) {
+                container.style.background = "rgba(0, 0, 0, 0.1)";
+                body.style.color = "#fff";
+                body.style.background = "url('background.svg')";
+                container.style.border = "1px solid rgba(255, 255, 255, 0.4)";
+                container.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.1)";
+                subtitle.style.color = "#c9c8c8";
+                footer.style.color = "#c9c8c8";
+
+                container.addEventListener("mouseenter", () => {
+                    container.style.background = "rgba(0, 0, 0, 0.15)";
+                    container.style.border = "1px solid white";
+                });
+                container.addEventListener("mouseleave", () => {
+                    container.style.background = "rgba(0, 0, 0, 0.1)";
+                    container.style.border = "1px solid rgba(255, 255, 255, 0.4)";
+                });
+            } else {
+                container.style.background = "#fff";
+                body.style.color = "#000";
+                body.style.background = "#fff";
+                container.style.border = "1px solid gray";
+                container.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.3)";
+                subtitle.style.color = "gray";
+                footer.style.color = "gray";
+
+                container.addEventListener("mouseenter", () => {
+                    container.style.background = "#fff";
+                    container.style.border = "1px solid #000";
+                });
+                container.addEventListener("mouseleave", () => {
+                    container.style.background = "#fff";
+                    container.style.border = "1px solid gray";
+                });
+            }
+        }
+    </script>
+
     <div class="container">
         <h1>Canvasia</h1>
         <div class="subtitle">Version 1.0.0.0 - Developed by Esraa Emary & Mohammed Atef</div>
@@ -132,7 +177,7 @@
                     </ul>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="section">

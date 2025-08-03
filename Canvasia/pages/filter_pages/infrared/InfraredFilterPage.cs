@@ -52,7 +52,7 @@ namespace Canvasia.pages.infrared
             }
 
             PhotoManager.ApplyFilter(pictureBox1, pictureBox2, original =>
-                Filters.ApplyInfraredFilter(original, (float)trackBar1.Value /10)
+                Filters.ApplyInfraredFilter(original, trackBar1.Value / 10f)
             );
 
             // Update undo/redo buttons

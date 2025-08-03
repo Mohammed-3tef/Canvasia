@@ -43,9 +43,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 112);
+            this.label1.Location = new System.Drawing.Point(9, 91);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(976, 94);
+            this.label1.Size = new System.Drawing.Size(732, 76);
             this.label1.TabIndex = 0;
             this.label1.Text = "Canvasia";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -55,9 +56,10 @@
             this.loadingLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadingLabel.ForeColor = System.Drawing.Color.White;
-            this.loadingLabel.Location = new System.Drawing.Point(12, 194);
+            this.loadingLabel.Location = new System.Drawing.Point(9, 158);
+            this.loadingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.loadingLabel.Name = "loadingLabel";
-            this.loadingLabel.Size = new System.Drawing.Size(976, 36);
+            this.loadingLabel.Size = new System.Drawing.Size(732, 29);
             this.loadingLabel.TabIndex = 1;
             this.loadingLabel.Text = "Loading";
             this.loadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,9 +69,10 @@
             this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(29)))), ((int)(((byte)(61)))));
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(206)))), ((int)(((byte)(234)))));
-            this.progressBar.Location = new System.Drawing.Point(0, 377);
+            this.progressBar.Location = new System.Drawing.Point(0, 306);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(1000, 23);
+            this.progressBar.Size = new System.Drawing.Size(750, 19);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 2;
             // 
@@ -82,26 +85,28 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(280, 125);
+            this.pictureBox1.Location = new System.Drawing.Point(205, 102);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 70);
+            this.pictureBox1.Size = new System.Drawing.Size(51, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // LoadingPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(29)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(1000, 400);
+            this.ClientSize = new System.Drawing.Size(750, 325);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.loadingLabel);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1000, 400);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(750, 325);
             this.Name = "LoadingPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pharmacy Management System";

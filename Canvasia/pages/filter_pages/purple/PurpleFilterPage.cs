@@ -57,7 +57,7 @@ namespace Canvasia.pages.purple
             }
 
             PhotoManager.ApplyFilter(pictureBox1, pictureBox2, original =>
-                Filters.ApplyPurpleFilter(original, trackBar1.Value)
+                Filters.ApplyPurpleFilter(original,1 - (trackBar1.Value / 10f))
             );
 
             // Update undo/redo buttons

@@ -45,20 +45,6 @@ namespace Canvasia.pages.filter_pages.crop
                 return;
             }
 
-            if (addX.Value <= 0)
-            {
-                MessageDisplay.ShowWarning("Please enter a valid X to add.");
-                addX.Focus();
-                return;
-            }
-
-            if (addY.Value <= 0)
-            {
-                MessageDisplay.ShowWarning("Please enter a valid X to add.");
-                addY.Focus();
-                return;
-            }
-
             if (addWidth.Value <= 0)
             {
                 MessageDisplay.ShowWarning("Please enter a valid width to add.");

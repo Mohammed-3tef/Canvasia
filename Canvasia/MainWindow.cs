@@ -35,6 +35,15 @@ namespace Canvasia
         {
             InitializeComponent();
             this.FormClosing += this.formClosing;
+
+            foreach (Control control in this.panel1.Controls)
+            {
+                if (control is Button btn)
+                {
+                    if (AppSettings.isDarkModeEnabled) btn.BackColor = Color.FromArgb(0, 29, 61);
+                    else btn.BackColor = SystemColors.ControlLight;
+                }
+            }
         }
 
         public void formClosing(object sender, FormClosingEventArgs e)
@@ -84,6 +93,8 @@ namespace Canvasia
 
             if (AppSettings.isDarkModeEnabled) activeButton.BackColor = Color.FromArgb(51, 65, 92); // Set active
             else activeButton.BackColor = SystemColors.Control;
+
+            AppSettings.inAboutPage = false;
         }
 
         private void infraredBtn_Click(object sender, EventArgs e)
@@ -220,6 +231,8 @@ namespace Canvasia
                 darkModeBtn.BackgroundImage = Properties.Resources.dark;
                 aboutBtn.BackgroundImage = Properties.Resources.dark_about;
             }
+
+            if (AppSettings.inAboutPage) OpenForm(new AboutPage());
         }
     }
 }

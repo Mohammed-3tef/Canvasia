@@ -50,7 +50,7 @@ namespace Canvasia
         }
 
         // ------------------------------------------------------------------------------------------ PURPLE
-        public static Bitmap ApplyPurpleFilter(Bitmap image, float intensity = 0.7f)
+        public static Bitmap ApplyPurpleFilter(Bitmap image, float intensity)
         {
             return ProcessBitmap(image, (pixels, width, height, stride) =>
             {
